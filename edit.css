@@ -16,3 +16,11 @@
   position: absolute;
   background: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/sticks-custom.png");
 }
+
+.edit .arrows {
+  transform: translateX(6px);
+}
+
+.edit .abxy {
+  transform: translateX(-6px);
+}
