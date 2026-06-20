@@ -14,28 +14,36 @@
   background: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/sticks-custom.png");
 }
 
-/* Alignment fixes */
+/* Alignment fixes - reversed direction */
 
-/* D-pad: active pieces need to move slightly right and down */
+/* D-pad: move left and up */
 .edit .dpad {
-  left: 97px !important;
-  top: 184px !important;
+  left: 87px !important;
+  /* default 92 */
+  top: 178px !important;
+  /* default 181 */
 }
 
-/* Face buttons: whole cluster needs to move slightly left and up */
+/* Face buttons: move right and down */
 .edit .abxy {
-  left: 558px !important;
-  top: 154px !important;
+  left: 576px !important;
+  /* default 567 */
+  top: 164px !important;
+  /* default 159 */
 }
 
-/* Share / Options buttons: move slightly left and up */
+/* Share / Options buttons: move right and down */
 .edit .arrows {
-  left: 222px !important;
-  top: 137px !important;
+  left: 232px !important;
+  /* default 227 */
+  top: 147px !important;
+  /* default 142 */
 }
 
-/* Sticks: both stick overlays need to move slightly right and down */
+/* Sticks: move left and up */
 .edit .sticks {
-  left: 233px !important;
-  top: 314px !important;
+  left: 223px !important;
+  /* default 228 */
+  top: 302px !important;
+  /* default 308 */
 }
