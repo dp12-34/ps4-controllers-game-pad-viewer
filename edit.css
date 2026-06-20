@@ -14,53 +14,60 @@
   background: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/sticks-custom.png");
 }
 
-/* Alignment fixes - reversed direction */
-/* Final alignment pass v2 */
+/* TRUE FINAL ALIGNMENT OVERRIDES */
 
-/* D-pad: 1px down and 1px right from previous */
-.edit .dpad,
-.controller.edit .dpad {
+/* D-pad: down + right */
+.controller.ds4.edit .dpad,
+.ds4.edit .dpad,
+.edit .dpad {
   left: 99px !important;
   top: 177px !important;
 }
 
-/* Face buttons: a couple px up and left */
-.edit .abxy,
-.controller.edit .abxy {
+/* Face buttons: up + left */
+.controller.ds4.edit .abxy,
+.ds4.edit .abxy,
+.edit .abxy {
   left: 571px !important;
   top: 163px !important;
 }
 
-/* L2 / L1: 2px down and right */
+/* L2 / L1: down + right */
+.controller.ds4.edit .trigger.left,
+.ds4.edit .trigger.left,
 .edit .trigger.left,
-.controller.edit .trigger.left,
-.edit .bumper.left,
-.controller.edit .bumper.left {
-  margin-left: 8px !important;
+.controller.ds4.edit .bumper.left,
+.ds4.edit .bumper.left,
+.edit .bumper.left {
   position: relative !important;
+  left: 8px !important;
   top: 2px !important;
 }
 
-/* R2 / R1: 2px down and left */
+/* R2 / R1: down + left */
+.controller.ds4.edit .trigger.right,
+.ds4.edit .trigger.right,
 .edit .trigger.right,
-.controller.edit .trigger.right,
-.edit .bumper.right,
-.controller.edit .bumper.right {
-  margin-right: 8px !important;
+.controller.ds4.edit .bumper.right,
+.ds4.edit .bumper.right,
+.edit .bumper.right {
   position: relative !important;
+  right: 8px !important;
   top: 2px !important;
 }
 
-/* Left stick: 1px down and left */
-.edit .stick.left,
-.controller.edit .stick.left {
-  top: -5px !important;
+/* Left stick: down + left */
+.controller.ds4.edit .stick.left,
+.ds4.edit .stick.left,
+.edit .stick.left {
+  top: 1px !important;
   left: -1px !important;
 }
 
-/* Right stick: KEEP PERFECT */
-.edit .stick.right,
-.controller.edit .stick.right {
+/* Right stick: LOCKED, do not change */
+.controller.ds4.edit .stick.right,
+.ds4.edit .stick.right,
+.edit .stick.right {
   top: -6px !important;
   left: calc(100% - 111px) !important;
 }
