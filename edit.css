@@ -1,0 +1,101 @@
+/* Pastel Sakura PS4 GamepadViewer Skin */
+
+/* Bright, soft controller recolor */
+.controller.edit.ds4 {
+  filter:
+    sepia(.18)
+    saturate(1.25)
+    hue-rotate(300deg)
+    brightness(1.18)
+    contrast(.9)
+    drop-shadow(0 8px 18px rgba(255, 170, 200, .35));
+}
+
+/* Keep old overlay junk removed */
+.controller.edit.ds4::before,
+.controller.edit.ds4::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Softer buttons */
+.controller.edit.ds4 .button,
+.controller.edit.ds4 .face,
+.controller.edit.ds4 .bumper,
+.controller.edit.ds4 .trigger,
+.controller.edit.ds4 .back,
+.controller.edit.ds4 .start,
+.controller.edit.ds4 .touchpad {
+  filter:
+    sepia(.2)
+    saturate(1.4)
+    hue-rotate(305deg)
+    brightness(1.25)
+    contrast(.92);
+}
+
+/* Analog sticks: soft white/pink */
+.controller.edit.ds4 .stick {
+  filter:
+    sepia(.15)
+    saturate(.85)
+    hue-rotate(310deg)
+    brightness(1.05)
+    contrast(.85);
+}
+
+/* Pressed buttons: gentle sakura glow */
+.controller.edit.ds4 .pressed {
+  filter:
+    sepia(.2)
+    saturate(1.8)
+    hue-rotate(310deg)
+    brightness(1.45)
+    contrast(.95)
+    drop-shadow(0 0 10px rgba(255, 155, 200, .85)) !important;
+}
+
+/* Sakura petal layer */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  pointer-events: none;
+  z-index: 9999;
+  background-image:
+    radial-gradient(ellipse at center, rgba(255, 180, 210, .9) 0 35%, transparent 38%),
+    radial-gradient(ellipse at center, rgba(255, 220, 235, .85) 0 32%, transparent 35%),
+    radial-gradient(ellipse at center, rgba(255, 155, 195, .75) 0 30%, transparent 34%);
+  background-size:
+    90px 120px,
+    140px 180px,
+    190px 240px;
+  background-position:
+    10% -10%,
+    55% -20%,
+    85% -15%;
+  animation: sakura-fall 12s linear infinite;
+  opacity: .75;
+}
+
+body::after {
+  animation-duration: 18s;
+  animation-delay: -6s;
+  opacity: .45;
+  transform: scale(.8);
+}
+
+@keyframes sakura-fall {
+  0% {
+    transform: translate3d(0, -15%, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(4%, 45%, 0) rotate(90deg);
+  }
+
+  100% {
+    transform: translate3d(-3%, 115%, 0) rotate(180deg);
+  }
+}
