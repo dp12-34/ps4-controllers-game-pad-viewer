@@ -1,37 +1,37 @@
-/* Sakura Pastel PS4 — clean version */
+/* Sakura PS4 EditCSS v1 — clean base */
 
-/* remove old junk */
+/* remove older bad overlays */
 body::before,
 body::after,
 .controller.edit.ds4::before,
 .controller.edit.ds4::after {
-  content: none !important;
   display: none !important;
+  content: none !important;
 }
 
-/* bright readable base */
+/* main controller: soft pink/white fade */
 .controller.edit.ds4 {
   filter:
-    brightness(1.22)
-    contrast(.92)
-    saturate(1.1)
-    drop-shadow(0 8px 18px rgba(255, 150, 190, .35));
+    brightness(1.18)
+    contrast(.95)
+    saturate(1.08)
+    drop-shadow(0 10px 18px rgba(210, 110, 150, .28));
 }
 
-/* controller shell color fade */
+/* tint the existing PS4 shell light sakura */
 .controller.edit.ds4 {
   background:
     linear-gradient(
       90deg,
-      rgba(255, 178, 210, .75) 0%,
-      rgba(255, 210, 228, .55) 42%,
-      rgba(255, 255, 255, .75) 72%,
-      rgba(255, 255, 255, .9) 100%
+      rgba(255, 190, 215, .55) 0%,
+      rgba(255, 226, 238, .35) 42%,
+      rgba(255, 255, 255, .45) 70%,
+      rgba(255, 255, 255, .55) 100%
     ) !important;
   border-radius: 34px;
 }
 
-/* all buttons rich pink */
+/* rich pink controls */
 .controller.edit.ds4 .button,
 .controller.edit.ds4 .face,
 .controller.edit.ds4 .bumper,
@@ -40,54 +40,40 @@ body::after,
 .controller.edit.ds4 .start,
 .controller.edit.ds4 .meta {
   filter:
-    sepia(.35)
-    saturate(2.5)
-    hue-rotate(285deg)
-    brightness(1.18)
-    contrast(1.05)
-    drop-shadow(0 0 4px rgba(255, 90, 165, .45)) !important;
+    sepia(.28)
+    saturate(2.2)
+    hue-rotate(295deg)
+    brightness(1.22)
+    contrast(1.05) !important;
 }
 
-/* touchpad soft white/pink */
+/* touchpad stays soft and light */
 .controller.edit.ds4 .touchpad {
   filter:
-    sepia(.15)
-    saturate(1.4)
-    hue-rotate(300deg)
-    brightness(1.35)
-    contrast(.88) !important;
+    sepia(.12)
+    saturate(1.25)
+    hue-rotate(305deg)
+    brightness(1.32)
+    contrast(.9) !important;
 }
 
-/* sticks: soft dark rose instead of black */
+/* sticks stay visible, but not harsh black */
 .controller.edit.ds4 .stick {
   filter:
-    sepia(.35)
-    saturate(1.7)
-    hue-rotate(300deg)
+    sepia(.18)
+    saturate(1.2)
+    hue-rotate(310deg)
     brightness(.95)
-    contrast(.95)
-    drop-shadow(0 0 5px rgba(255, 150, 190, .35)) !important;
+    contrast(.92) !important;
 }
 
-/* pressed buttons: stronger pink glow */
+/* pressed state: rich pink glow */
 .controller.edit.ds4 .pressed {
   filter:
-    sepia(.4)
-    saturate(3)
-    hue-rotate(292deg)
-    brightness(1.45)
-    contrast(1.05)
-    drop-shadow(0 0 10px rgba(255, 70, 160, .9)) !important;
-}
-
-/* subtle sakura accent ON the controller only */
-.controller.edit.ds4 .touchpad::after {
-  content: "✿";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -48%);
-  font-size: 34px;
-  color: rgba(255, 110, 175, .55);
-  pointer-events: none;
+    sepia(.32)
+    saturate(2.8)
+    hue-rotate(300deg)
+    brightness(1.42)
+    contrast(1.04)
+    drop-shadow(0 0 8px rgba(224, 83, 145, .75)) !important;
 }
