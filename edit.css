@@ -20,11 +20,11 @@
 
 /* Tiny alignment fixes only */
 .edit .dpad {
-  left: 98px !important;
+  left: 96px !important;
   /* default is 92px */
 }
 
 .edit .abxy {
-  left: 561px !important;
+  left: 564px !important;
   /* default is 567px */
 }
