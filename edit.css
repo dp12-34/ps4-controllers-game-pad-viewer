@@ -1,53 +1,30 @@
 /* Sakura PS4 Gamepad Viewer Skin */
 
 /* Base controller */
-.controller.ds4,
+.edit .controller.ds4,
 .controller.edit {
   background: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/base-custom.png");
-  height: 598px;
-  width: 806px;
-}
-
-/* D-pad group: was slightly too far left, so nudge right */
-.controller.edit .dpad,
-.edit.ds4 .dpad {
-  left: 98px;
-  /* original was 92px */
 }
 
 /* D-pad sprite */
-.controller.edit .face,
-.edit.ds4 .face {
-  background: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/dpad-custom.png");
+.edit .face {
   position: absolute;
-}
-
-/* Face button group: was slightly too far right, so nudge left */
-.controller.edit .abxy,
-.edit.ds4 .abxy {
-  left: 561px;
-  /* original was 567px */
-}
-
-/* Optional: hide the default face-button SVG if it clashes with the painted base */
-/* Remove this block if you still want the default face symbols to show */
-.controller.edit .button,
-.edit.ds4 .button {
-  opacity: 0.92;
-}
-
-/* Stick group */
-.controller.edit .sticks,
-.edit.ds4 .sticks {
-  top: 308px;
-  left: 228px;
+  background: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/dpad-custom.png");
 }
 
 /* Stick sprite */
-.controller.edit .stick,
-.edit.ds4 .stick {
-  background: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/sticks-custom.png");
+.edit .stick {
   position: absolute;
-  height: 94px;
-  width: 94px;
+  background: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/sticks-custom.png");
+}
+
+/* Tiny alignment fixes only */
+.edit .dpad {
+  left: 98px !important;
+  /* default is 92px */
+}
+
+.edit .abxy {
+  left: 561px !important;
+  /* default is 567px */
 }
