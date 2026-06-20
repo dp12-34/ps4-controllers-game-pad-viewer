@@ -16,34 +16,52 @@
 
 /* Alignment fixes - reversed direction */
 
-/* D-pad: move left and up */
-.edit .dpad {
-  left: 87px !important;
+/* Fine alignment pass */
+
+/* D-pad: up and right */
+.edit .dpad,
+.controller.edit .dpad {
+  left: 98px !important;
   /* default 92 */
-  top: 178px !important;
+  top: 176px !important;
   /* default 181 */
 }
 
-/* Face buttons: move right and down */
-.edit .abxy {
-  left: 576px !important;
+/* Face buttons: down and right */
+.edit .abxy,
+.controller.edit .abxy {
+  left: 573px !important;
   /* default 567 */
-  top: 164px !important;
+  top: 165px !important;
   /* default 159 */
 }
 
-/* Share / Options buttons: move right and down */
-.edit .arrows {
-  left: 232px !important;
-  /* default 227 */
-  top: 147px !important;
-  /* default 142 */
+/* L2/L1: move right */
+.edit .trigger.left,
+.controller.edit .trigger.left,
+.edit .bumper.left,
+.controller.edit .bumper.left {
+  margin-left: 6px !important;
 }
 
-/* Sticks: move left and up */
-.edit .sticks {
-  left: 223px !important;
-  /* default 228 */
-  top: 302px !important;
-  /* default 308 */
+/* R2/R1: move left */
+.edit .trigger.right,
+.controller.edit .trigger.right,
+.edit .bumper.right,
+.controller.edit .bumper.right {
+  margin-right: 6px !important;
+}
+
+/* Left stick: up */
+.edit .stick.left,
+.controller.edit .stick.left {
+  top: -6px !important;
+}
+
+/* Right stick: up and left */
+.edit .stick.right,
+.controller.edit .stick.right {
+  top: -6px !important;
+  left: calc(100% - 111px) !important;
+  /* default is calc(100% - 105px) */
 }
