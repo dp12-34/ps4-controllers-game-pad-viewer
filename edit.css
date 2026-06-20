@@ -1,9 +1,4 @@
-/* Sakura PS4 GamepadViewer edit.css v2
-   Files in repo root:
-   edit.css
-   sakura-overlay.svg
-   petals-drift.svg
-*/
+/* Sakura scenic PS4 GamepadViewer edit.css v3 */
 
 html,
 body {
@@ -18,9 +13,8 @@ body::after {
 }
 
 /*
-  IMPORTANT:
-  Keep the real PS4 base image. The sakura art is an overlay.
-  This fixes the "not a PS4 controller" and "buttons not on controller" issue.
+  The PS4 controller still comes from GamepadViewer.
+  Our SVGs add the sakura shell art + scenic touchpad.
 */
 .controller.edit.ds4 {
   background-image:
@@ -31,80 +25,82 @@ body::after {
   background-size: contain, contain !important;
 
   filter:
-    drop-shadow(0 10px 18px rgba(190, 80, 130, .28))
-    drop-shadow(0 0 12px rgba(235, 120, 168, .18)) !important;
+    drop-shadow(0 10px 18px rgba(175, 64, 116, .30))
+    drop-shadow(0 0 12px rgba(232, 116, 165, .20)) !important;
 }
 
-/* Animated petals, constrained to controller area */
-.controller.edit.ds4::before {
-  content: "" !important;
-  display: block !important;
-  position: absolute !important;
-  inset: 0 !important;
-  pointer-events: none !important;
-  z-index: 6 !important;
-
-  background-image: url("petals-drift.svg") !important;
-  background-repeat: no-repeat !important;
-  background-size: contain !important;
-  background-position: center -42px !important;
-
-  opacity: .42;
-  animation: sakuraPetals 11s linear infinite;
-}
-
-/* second softer petal pass */
+/* more petals, still constrained to controller */
+.controller.edit.ds4::before,
 .controller.edit.ds4::after {
   content: "" !important;
   display: block !important;
   position: absolute !important;
   inset: 0 !important;
   pointer-events: none !important;
-  z-index: 5 !important;
-
   background-image: url("petals-drift.svg") !important;
   background-repeat: no-repeat !important;
   background-size: contain !important;
-  background-position: center -110px !important;
-
-  opacity: .24;
-  animation: sakuraPetalsTwo 16s linear infinite;
 }
 
-/* Keep controls above blossom overlays */
+.controller.edit.ds4::before {
+  z-index: 6 !important;
+  background-position: center -58px !important;
+  opacity: .46;
+  animation: sakuraPetals 10s linear infinite;
+}
+
+.controller.edit.ds4::after {
+  z-index: 5 !important;
+  background-position: center -145px !important;
+  opacity: .28;
+  animation: sakuraPetalsTwo 15s linear infinite;
+}
+
 .controller.edit.ds4 > div {
   position: relative;
   z-index: 10;
 }
 
-/* Rich pink controls while preserving PS button symbols */
-.controller.edit.ds4 .button {
-  filter:
-    sepia(.25)
-    saturate(2.65)
-    hue-rotate(296deg)
-    brightness(1.06)
-    contrast(1.15)
-    drop-shadow(0 2px 4px rgba(120, 40, 75, .20)) !important;
+/* scenic touchpad from the concept image */
+.controller.edit.ds4 .touchpad {
+  background-image: url("touchpad-sakura.svg") !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+  background-position: center center !important;
+  filter: none !important;
+  border-radius: 18px !important;
+  overflow: hidden !important;
 }
 
+/* rich pink buttons */
+.controller.edit.ds4 .button {
+  filter:
+    sepia(.26)
+    saturate(2.85)
+    hue-rotate(296deg)
+    brightness(1.08)
+    contrast(1.18)
+    drop-shadow(0 2px 4px rgba(120, 40, 75, .24)) !important;
+}
+
+/* d-pad is deep rose so it doesn't disappear on the pink side */
 .controller.edit.ds4 .face {
   filter:
-    sepia(.18)
-    saturate(2.15)
+    sepia(.20)
+    saturate(2.35)
     hue-rotate(302deg)
     brightness(.88)
-    contrast(1.12) !important;
+    contrast(1.16) !important;
 }
 
 .controller.edit.ds4 .stick {
   filter:
-    sepia(.10)
-    saturate(1.20)
+    sepia(.08)
+    saturate(1.15)
     hue-rotate(305deg)
-    brightness(.82)
-    contrast(1.10)
-    drop-shadow(0 2px 4px rgba(70, 35, 50, .18)) !important;
+    brightness(.78)
+    contrast(1.12)
+    drop-shadow(0 2px 4px rgba(70, 35, 50, .20)) !important;
 }
 
 .controller.edit.ds4 .bumper,
@@ -114,30 +110,21 @@ body::after {
 .controller.edit.ds4 .meta {
   filter:
     sepia(.18)
-    saturate(1.85)
+    saturate(1.95)
     hue-rotate(296deg)
-    brightness(1.06)
-    contrast(1.05) !important;
+    brightness(1.04)
+    contrast(1.08) !important;
 }
 
-.controller.edit.ds4 .touchpad {
-  filter:
-    sepia(.06)
-    saturate(1.15)
-    hue-rotate(305deg)
-    brightness(1.12)
-    contrast(.96) !important;
-}
-
-/* Pressed: clear, but not neon */
+/* pressed state */
 .controller.edit.ds4 .pressed {
   filter:
     sepia(.30)
-    saturate(2.9)
+    saturate(3.0)
     hue-rotate(298deg)
-    brightness(1.25)
+    brightness(1.28)
     contrast(1.12)
-    drop-shadow(0 0 9px rgba(222, 82, 145, .72)) !important;
+    drop-shadow(0 0 9px rgba(222, 82, 145, .75)) !important;
 }
 
 .controller.edit.ds4 .button.pressed,
@@ -146,42 +133,35 @@ body::after {
   transform: scale(.96);
 }
 
-/* More abundant, but still clean */
 @keyframes sakuraPetals {
   0% {
-    transform: translate3d(-1%, -10%, 0) rotate(0deg);
+    transform: translate3d(-1%, -12%, 0) rotate(0deg);
     opacity: 0;
   }
-  8% {
-    opacity: .42;
-  }
+  8% { opacity: .46; }
   50% {
     transform: translate3d(2.5%, 42%, 0) rotate(8deg);
-    opacity: .40;
+    opacity: .44;
   }
-  90% {
-    opacity: .32;
-  }
+  90% { opacity: .34; }
   100% {
-    transform: translate3d(-2%, 86%, 0) rotate(14deg);
+    transform: translate3d(-2%, 88%, 0) rotate(14deg);
     opacity: 0;
   }
 }
 
 @keyframes sakuraPetalsTwo {
   0% {
-    transform: translate3d(2%, -12%, 0) rotate(-8deg);
+    transform: translate3d(2%, -14%, 0) rotate(-8deg);
     opacity: 0;
   }
-  12% {
-    opacity: .24;
-  }
+  12% { opacity: .28; }
   55% {
-    transform: translate3d(-2%, 47%, 0) rotate(3deg);
-    opacity: .24;
+    transform: translate3d(-2%, 48%, 0) rotate(3deg);
+    opacity: .28;
   }
   100% {
-    transform: translate3d(1%, 92%, 0) rotate(12deg);
+    transform: translate3d(1%, 94%, 0) rotate(12deg);
     opacity: 0;
   }
 }

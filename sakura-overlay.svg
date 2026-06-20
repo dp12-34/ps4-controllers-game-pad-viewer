@@ -1,54 +1,92 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 806 598">
   <defs>
-    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#df6fa2" stop-opacity=".58"/>
-      <stop offset="34%" stop-color="#f4b8d1" stop-opacity=".38"/>
-      <stop offset="62%" stop-color="#fff2f8" stop-opacity=".18"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity=".03"/>
+    <linearGradient id="shellFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e66a9e" stop-opacity=".62"/>
+      <stop offset="32%" stop-color="#f5abc9" stop-opacity=".46"/>
+      <stop offset="58%" stop-color="#fff0f7" stop-opacity=".28"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity=".06"/>
     </linearGradient>
 
+    <radialGradient id="softBlush" cx="24%" cy="62%" r="55%">
+      <stop offset="0%" stop-color="#df5c95" stop-opacity=".34"/>
+      <stop offset="70%" stop-color="#f5b8d0" stop-opacity=".12"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
     <g id="petal">
-      <path d="M0,-11 C7,-11 12,-4 9,4 C6,12 -3,16 -8,8 C-13,0 -7,-10 0,-11Z" fill="#eb78a8"/>
-      <path d="M0,-8 C3,-4 2,4 -1,9" stroke="#b74a78" stroke-width="1" opacity=".35" fill="none"/>
+      <path d="M0,-11 C7,-11 12,-4 9,4 C6,12 -3,16 -8,8 C-13,0 -7,-10 0,-11Z" fill="#f19abb"/>
+      <path d="M0,-8 C3,-4 2,4 -1,9" stroke="#b94a79" stroke-width="1" opacity=".34" fill="none"/>
     </g>
 
-    <g id="blossom">
+    <g id="flower">
       <use href="#petal" transform="rotate(0) translate(0,-9) scale(.58)"/>
       <use href="#petal" transform="rotate(72) translate(0,-9) scale(.58)"/>
       <use href="#petal" transform="rotate(144) translate(0,-9) scale(.58)"/>
       <use href="#petal" transform="rotate(216) translate(0,-9) scale(.58)"/>
       <use href="#petal" transform="rotate(288) translate(0,-9) scale(.58)"/>
-      <circle r="2.8" fill="#ba4777"/>
-      <circle r="1.1" fill="#ffe1ec"/>
+      <circle r="2.9" fill="#b94373"/>
+      <circle r="1.2" fill="#ffe2ee"/>
+    </g>
+
+    <g id="smallFlower">
+      <use href="#flower" transform="scale(.62)"/>
     </g>
   </defs>
 
-  <!-- blush fade clipped visually to controller region; transparent elsewhere -->
+  <!-- Soft shell tint only; real PS4 base stays underneath -->
   <path d="M96 120 C58 134 44 171 42 227 L25 418 C18 498 67 550 139 539 C189 532 203 486 218 444 C230 411 247 393 283 396 L523 396 C559 393 576 411 588 444 C603 486 617 532 667 539 C739 550 788 498 781 418 L764 227 C762 171 748 134 710 120 C651 99 596 122 559 175 C536 206 507 219 464 219 L342 219 C299 219 270 206 247 175 C210 122 155 99 96 120Z"
-        fill="url(#fade)" opacity=".95"/>
+        fill="url(#shellFade)"/>
+  <path d="M96 120 C58 134 44 171 42 227 L25 418 C18 498 67 550 139 539 C189 532 203 486 218 444 C230 411 247 393 283 396 L523 396 C559 393 576 411 588 444 C603 486 617 532 667 539 C739 550 788 498 781 418 L764 227 C762 171 748 134 710 120 C651 99 596 122 559 175 C536 206 507 219 464 219 L342 219 C299 219 270 206 247 175 C210 122 155 99 96 120Z"
+        fill="url(#softBlush)"/>
 
-  <!-- upper-left branch cluster -->
-  <path d="M96 180 C134 145 178 140 224 158 C250 168 270 186 287 208"
-        stroke="#5c3839" stroke-width="8" stroke-linecap="round" fill="none" opacity=".52"/>
-  <path d="M122 160 C104 144 94 128 88 111" stroke="#5c3839" stroke-width="4" stroke-linecap="round" fill="none" opacity=".42"/>
-  <path d="M181 144 C193 126 207 115 224 105" stroke="#5c3839" stroke-width="4" stroke-linecap="round" fill="none" opacity=".42"/>
-  <use href="#blossom" x="119" y="172" transform="rotate(-20 119 172) scale(1.15)"/>
-  <use href="#blossom" x="163" y="149" transform="rotate(8 163 149) scale(.72)"/>
-  <use href="#blossom" x="218" y="159" transform="rotate(-18 218 159) scale(.66)"/>
-  <use href="#petal" x="269" y="186" transform="rotate(-20 269 186) scale(.62)"/>
-  <use href="#petal" x="242" y="139" transform="rotate(40 242 139) scale(.45)"/>
+  <!-- left grip cherry tree / flowers -->
+  <path d="M82 490 C113 412 129 344 123 274 C119 219 101 177 74 139"
+        stroke="#4b2f37" stroke-width="9" stroke-linecap="round" fill="none" opacity=".54"/>
+  <path d="M99 419 C137 384 176 367 213 360"
+        stroke="#4b2f37" stroke-width="6" stroke-linecap="round" fill="none" opacity=".48"/>
+  <path d="M112 350 C151 313 184 292 224 280"
+        stroke="#4b2f37" stroke-width="5" stroke-linecap="round" fill="none" opacity=".42"/>
+  <path d="M113 255 C144 226 181 209 219 203"
+        stroke="#4b2f37" stroke-width="5" stroke-linecap="round" fill="none" opacity=".38"/>
 
-  <!-- lower-right branch cluster -->
-  <path d="M540 404 C584 437 629 449 679 437 C716 429 741 407 759 379"
-        stroke="#5c3839" stroke-width="8" stroke-linecap="round" fill="none" opacity=".47"/>
-  <path d="M630 445 C615 468 596 484 576 493" stroke="#5c3839" stroke-width="4" stroke-linecap="round" fill="none" opacity=".40"/>
-  <path d="M700 431 C724 447 738 468 746 492" stroke="#5c3839" stroke-width="4" stroke-linecap="round" fill="none" opacity=".40"/>
-  <use href="#blossom" x="560" y="407" transform="rotate(18 560 407) scale(.95)"/>
-  <use href="#blossom" x="620" y="448" transform="rotate(-10 620 448) scale(.72)"/>
-  <use href="#blossom" x="684" y="435" transform="rotate(20 684 435) scale(.58)"/>
+  <use href="#flower" x="108" y="414" transform="rotate(-12 108 414) scale(1.18)"/>
+  <use href="#flower" x="149" y="384" transform="rotate(18 149 384) scale(.92)"/>
+  <use href="#smallFlower" x="189" y="361" transform="rotate(-20 189 361) scale(1.05)"/>
+  <use href="#smallFlower" x="128" y="326" transform="rotate(14 128 326) scale(.9)"/>
+  <use href="#flower" x="171" y="297" transform="rotate(-8 171 297) scale(.78)"/>
+  <use href="#smallFlower" x="212" y="278" transform="rotate(20 212 278) scale(.8)"/>
+  <use href="#smallFlower" x="142" y="222" transform="rotate(-18 142 222) scale(.74)"/>
+  <use href="#smallFlower" x="205" y="204" transform="rotate(10 205 204) scale(.68)"/>
 
-  <!-- small center accents -->
-  <use href="#petal" x="398" y="171" transform="rotate(70 398 171) scale(.48)" opacity=".75"/>
-  <use href="#petal" x="470" y="312" transform="rotate(-36 470 312) scale(.42)" opacity=".60"/>
-  <use href="#blossom" x="598" y="305" transform="rotate(15 598 305) scale(.48)" opacity=".78"/>
+  <!-- upper flourish near touchpad -->
+  <path d="M238 180 C279 154 329 145 382 158 C421 168 452 190 478 217"
+        stroke="#4b2f37" stroke-width="5" stroke-linecap="round" fill="none" opacity=".30"/>
+  <use href="#smallFlower" x="278" y="162" transform="rotate(-12 278 162) scale(.72)"/>
+  <use href="#smallFlower" x="340" y="154" transform="rotate(20 340 154) scale(.66)"/>
+  <use href="#petal" x="423" y="185" transform="rotate(35 423 185) scale(.46)" opacity=".75"/>
+
+  <!-- right grip cherry tree / flowers -->
+  <path d="M724 490 C690 420 681 358 696 293 C707 242 735 203 768 170"
+        stroke="#4b2f37" stroke-width="9" stroke-linecap="round" fill="none" opacity=".50"/>
+  <path d="M704 420 C660 388 618 373 571 371"
+        stroke="#4b2f37" stroke-width="6" stroke-linecap="round" fill="none" opacity=".45"/>
+  <path d="M690 350 C650 323 616 308 576 302"
+        stroke="#4b2f37" stroke-width="5" stroke-linecap="round" fill="none" opacity=".40"/>
+  <path d="M708 271 C674 247 640 235 604 232"
+        stroke="#4b2f37" stroke-width="5" stroke-linecap="round" fill="none" opacity=".34"/>
+
+  <use href="#flower" x="700" y="426" transform="rotate(18 700 426) scale(1.14)"/>
+  <use href="#flower" x="662" y="393" transform="rotate(-14 662 393) scale(.92)"/>
+  <use href="#smallFlower" x="616" y="372" transform="rotate(12 616 372) scale(.92)"/>
+  <use href="#smallFlower" x="683" y="338" transform="rotate(-18 683 338) scale(.82)"/>
+  <use href="#flower" x="633" y="312" transform="rotate(10 633 312) scale(.76)"/>
+  <use href="#smallFlower" x="584" y="300" transform="rotate(-18 584 300) scale(.72)"/>
+  <use href="#smallFlower" x="694" y="248" transform="rotate(16 694 248) scale(.72)"/>
+  <use href="#smallFlower" x="622" y="232" transform="rotate(-6 622 232) scale(.66)"/>
+
+  <!-- loose petals over shell -->
+  <use href="#petal" x="300" y="424" transform="rotate(68 300 424) scale(.42)" opacity=".62"/>
+  <use href="#petal" x="481" y="351" transform="rotate(-32 481 351) scale(.44)" opacity=".60"/>
+  <use href="#petal" x="535" y="178" transform="rotate(42 535 178) scale(.50)" opacity=".70"/>
+  <use href="#petal" x="247" y="248" transform="rotate(-58 247 248) scale(.38)" opacity=".55"/>
 </svg>
