@@ -1,101 +1,93 @@
-/* Pastel Sakura PS4 GamepadViewer Skin */
+/* Sakura Pastel PS4 — clean version */
 
-/* Bright, soft controller recolor */
-.controller.edit.ds4 {
-  filter:
-    sepia(.18)
-    saturate(1.25)
-    hue-rotate(300deg)
-    brightness(1.18)
-    contrast(.9)
-    drop-shadow(0 8px 18px rgba(255, 170, 200, .35));
-}
-
-/* Keep old overlay junk removed */
+/* remove old junk */
+body::before,
+body::after,
 .controller.edit.ds4::before,
 .controller.edit.ds4::after {
-  display: none !important;
   content: none !important;
+  display: none !important;
 }
 
-/* Softer buttons */
+/* bright readable base */
+.controller.edit.ds4 {
+  filter:
+    brightness(1.22)
+    contrast(.92)
+    saturate(1.1)
+    drop-shadow(0 8px 18px rgba(255, 150, 190, .35));
+}
+
+/* controller shell color fade */
+.controller.edit.ds4 {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 178, 210, .75) 0%,
+      rgba(255, 210, 228, .55) 42%,
+      rgba(255, 255, 255, .75) 72%,
+      rgba(255, 255, 255, .9) 100%
+    ) !important;
+  border-radius: 34px;
+}
+
+/* all buttons rich pink */
 .controller.edit.ds4 .button,
 .controller.edit.ds4 .face,
 .controller.edit.ds4 .bumper,
 .controller.edit.ds4 .trigger,
 .controller.edit.ds4 .back,
 .controller.edit.ds4 .start,
+.controller.edit.ds4 .meta {
+  filter:
+    sepia(.35)
+    saturate(2.5)
+    hue-rotate(285deg)
+    brightness(1.18)
+    contrast(1.05)
+    drop-shadow(0 0 4px rgba(255, 90, 165, .45)) !important;
+}
+
+/* touchpad soft white/pink */
 .controller.edit.ds4 .touchpad {
   filter:
-    sepia(.2)
+    sepia(.15)
     saturate(1.4)
-    hue-rotate(305deg)
-    brightness(1.25)
-    contrast(.92);
+    hue-rotate(300deg)
+    brightness(1.35)
+    contrast(.88) !important;
 }
 
-/* Analog sticks: soft white/pink */
+/* sticks: soft dark rose instead of black */
 .controller.edit.ds4 .stick {
   filter:
-    sepia(.15)
-    saturate(.85)
-    hue-rotate(310deg)
-    brightness(1.05)
-    contrast(.85);
+    sepia(.35)
+    saturate(1.7)
+    hue-rotate(300deg)
+    brightness(.95)
+    contrast(.95)
+    drop-shadow(0 0 5px rgba(255, 150, 190, .35)) !important;
 }
 
-/* Pressed buttons: gentle sakura glow */
+/* pressed buttons: stronger pink glow */
 .controller.edit.ds4 .pressed {
   filter:
-    sepia(.2)
-    saturate(1.8)
-    hue-rotate(310deg)
+    sepia(.4)
+    saturate(3)
+    hue-rotate(292deg)
     brightness(1.45)
-    contrast(.95)
-    drop-shadow(0 0 10px rgba(255, 155, 200, .85)) !important;
+    contrast(1.05)
+    drop-shadow(0 0 10px rgba(255, 70, 160, .9)) !important;
 }
 
-/* Sakura petal layer */
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  inset: -20%;
+/* subtle sakura accent ON the controller only */
+.controller.edit.ds4 .touchpad::after {
+  content: "✿";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -48%);
+  font-size: 34px;
+  color: rgba(255, 110, 175, .55);
   pointer-events: none;
-  z-index: 9999;
-  background-image:
-    radial-gradient(ellipse at center, rgba(255, 180, 210, .9) 0 35%, transparent 38%),
-    radial-gradient(ellipse at center, rgba(255, 220, 235, .85) 0 32%, transparent 35%),
-    radial-gradient(ellipse at center, rgba(255, 155, 195, .75) 0 30%, transparent 34%);
-  background-size:
-    90px 120px,
-    140px 180px,
-    190px 240px;
-  background-position:
-    10% -10%,
-    55% -20%,
-    85% -15%;
-  animation: sakura-fall 12s linear infinite;
-  opacity: .75;
-}
-
-body::after {
-  animation-duration: 18s;
-  animation-delay: -6s;
-  opacity: .45;
-  transform: scale(.8);
-}
-
-@keyframes sakura-fall {
-  0% {
-    transform: translate3d(0, -15%, 0) rotate(0deg);
-  }
-
-  50% {
-    transform: translate3d(4%, 45%, 0) rotate(90deg);
-  }
-
-  100% {
-    transform: translate3d(-3%, 115%, 0) rotate(180deg);
-  }
 }
