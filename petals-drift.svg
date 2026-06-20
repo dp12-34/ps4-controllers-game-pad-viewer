@@ -1,12 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 806 598">
   <defs>
     <g id="petal">
-      <path d="M0,-12 C8,-11 13,-4 10,4 C7,13 -3,18 -8,9 C-13,0 -8,-10 0,-12Z" fill="#ee7fad" opacity=".78"/>
-      <path d="M0,-9 C3,-5 3,4 -1,10" stroke="#b74a78" stroke-width="1" opacity=".28" fill="none"/>
+      <path d="M0,-10 C7,-10 11,-3 8,4 C5,11 -3,15 -8,7 C-12,0 -7,-9 0,-10Z" fill="#e86f9f" opacity=".78"/>
+      <path d="M0,-7 C3,-3 2,4 -1,9" stroke="#b74a78" stroke-width="1" opacity=".25" fill="none"/>
     </g>
   </defs>
-  <use href="#petal" x="170" y="50" transform="rotate(24 170 50) scale(.62)"/>
-  <use href="#petal" x="335" y="20" transform="rotate(-30 335 20) scale(.48)"/>
-  <use href="#petal" x="514" y="82" transform="rotate(40 514 82) scale(.56)"/>
-  <use href="#petal" x="636" y="34" transform="rotate(-10 636 34) scale(.46)"/>
+  <use href="#petal" x="120" y="40" transform="rotate(28 120 40) scale(.55)"/>
+  <use href="#petal" x="210" y="20" transform="rotate(-22 210 20) scale(.38)"/>
+  <use href="#petal" x="315" y="56" transform="rotate(54 315 56) scale(.45)"/>
+  <use href="#petal" x="438" y="30" transform="rotate(-18 438 30) scale(.42)"/>
+  <use href="#petal" x="548" y="78" transform="rotate(35 548 78) scale(.50)"/>
+  <use href="#petal" x="650" y="36" transform="rotate(-8 650 36) scale(.38)"/>
+  <use href="#petal" x="720" y="92" transform="rotate(18 720 92) scale(.43)"/>
 </svg>
