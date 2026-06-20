@@ -2,17 +2,17 @@
 
 .edit .controller.ds4,
 .controller.edit {
-  background: url("https://dp12-34.github.io/skins/base-custom.png");
+  background: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/base-custom.png");
 }
 
 .edit .face,
 .edit .face .ds4 {
   position: absolute;
-  background: url("https://dp12-34.github.io/skins/dpad-custom.png");
+  background: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/dpad-custom.png");
 }
 
 .edit .stick,
 .edit .stick .ds4 {
   position: absolute;
-  background: url("https://dp12-34.github.io/skins/sticks-custom.png");
+  background: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/sticks-custom.png");
 }
