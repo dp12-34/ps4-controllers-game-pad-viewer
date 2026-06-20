@@ -1,73 +1,142 @@
-/* Sakura PS4 GamepadViewer edit.css v4
-   This version uses your provided concept image as the controller art.
-   That is the closest way to get the exact look you wanted.
-
-   Upload:
-   - edit.css
-   - controller-concept.png
-
-   GamepadViewer URL:
-   https://gamepadviewer.com/?p=1&s=5&editcss=https%3A%2F%2Fdp12-34.github.io%2Fps4-controllers-game-pad-viewer%2Fedit.css
-*/
-
-html,
+/* Sakura PS4 / DS4 skin for GamepadViewer */
 body {
   background: transparent !important;
-  overflow: hidden !important;
+  overflow: hidden;
 }
 
-/* Stop old generated overlays from previous versions. */
 body::before,
-body::after,
-.controller.edit.ds4::before,
-.controller.edit.ds4::after {
-  display: none !important;
-  content: none !important;
+body::after {
+  content: "";
+  position: fixed;
+  inset: -80px;
+  pointer-events: none;
+  z-index: 9999;
+  background-image:
+    radial-gradient(ellipse at center, #ff8fbd 0 35%, transparent 38%),
+    radial-gradient(ellipse at center, #ffb7d3 0 35%, transparent 38%),
+    radial-gradient(ellipse at center, #ffc9df 0 35%, transparent 38%);
+  background-size: 22px 14px, 18px 12px, 28px 18px;
+  background-position: 8% 5%, 42% 15%, 80% 0%;
+  animation: sakuraFall 8s linear infinite;
+  opacity: .75;
 }
 
-/* Use the concept controller image as the actual visual skin. */
-.controller.edit.ds4 {
-  width: 1365px !important;
-  height: 1024px !important;
-
-  background-image: url("controller-concept.png") !important;
-  background-repeat: no-repeat !important;
-  background-size: contain !important;
-  background-position: center center !important;
-
-  filter:
-    drop-shadow(0 12px 24px rgba(160, 55, 110, .24)) !important;
+body::after {
+  animation-duration: 13s;
+  animation-delay: -5s;
+  opacity: .45;
+  filter: blur(1px);
 }
 
-/*
-  Hide the default GamepadViewer art so it does not fight the image.
-  The concept image already contains the shell, buttons, sticks, and touchpad.
-*/
-.controller.edit.ds4 > div {
-  opacity: 0 !important;
+@keyframes sakuraFall {
+  from {
+    transform: translate3d(-40px, -120px, 0) rotate(0deg);
+  }
+
+  to {
+    transform: translate3d(90px, 820px, 0) rotate(360deg);
+  }
 }
 
-/*
-  Bring back only pressed-state feedback as a subtle pink glow.
-  This keeps the controller clean while still showing input.
-*/
-.controller.edit.ds4 .pressed {
-  opacity: .55 !important;
-  filter:
-    brightness(1.3)
-    saturate(1.4)
-    drop-shadow(0 0 10px rgba(255, 75, 155, .85)) !important;
+/* Main controller body */
+.controller,
+.controller.ds4,
+.controller.custom {
+  filter: drop-shadow(0 18px 28px rgba(190, 68, 118, .35));
 }
 
-/*
-  If you want stick movement visible, change opacity below from 0 to .28.
-  It may create a slight duplicate-stick look depending on alignment.
-*/
-/*
-.controller.edit.ds4 .stick {
-  opacity: .28 !important;
+.controller.ds4,
+.controller.custom {
+  background:
+    radial-gradient(circle at 23% 72%, rgba(255, 135, 184, .45), transparent 18%),
+    radial-gradient(circle at 78% 72%, rgba(255, 255, 255, .7), transparent 18%),
+    linear-gradient(100deg,
+      #f47fb0 0%,
+      #f9a8ca 33%,
+      #ffe4ef 51%,
+      #fff6fa 66%,
+      #ffd5e8 100%) !important;
+  border-radius: 90px 90px 150px 150px !important;
+  box-shadow:
+    inset 0 0 40px rgba(255, 255, 255, .55),
+    inset 0 -20px 45px rgba(219, 80, 135, .22);
 }
-.controller.edit.ds4 .stick.pressed {
-  opacity: .45 !important;
+
+/* Cherry blossom branches / decals */
+.controller.ds4::before,
+.controller.custom::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background:
+    linear-gradient(132deg, transparent 0 13%, #743043 13.4% 14.2%, transparent 14.6%),
+    linear-gradient(38deg, transparent 0 78%, #743043 78.3% 79.1%, transparent 79.5%),
+    radial-gradient(circle at 13% 69%, #fff1f7 0 1.5%, #ff7fb4 1.6% 2.4%, transparent 2.5%),
+    radial-gradient(circle at 18% 63%, #fff1f7 0 1.3%, #ff8fbd 1.4% 2.3%, transparent 2.4%),
+    radial-gradient(circle at 22% 76%, #fff1f7 0 1.3%, #ff8fbd 1.4% 2.3%, transparent 2.4%),
+    radial-gradient(circle at 83% 72%, #fff1f7 0 1.5%, #ff7fb4 1.6% 2.4%, transparent 2.5%),
+    radial-gradient(circle at 88% 63%, #fff1f7 0 1.3%, #ff8fbd 1.4% 2.3%, transparent 2.4%),
+    radial-gradient(circle at 76% 80%, #fff1f7 0 1.3%, #ff8fbd 1.4% 2.3%, transparent 2.4%);
+  opacity: .95;
 }
-*/
+
+/* Face buttons + D-pad: rich pink */
+.button,
+.face,
+.bumper,
+.trigger-button,
+.back,
+.start {
+  background: linear-gradient(#ff70ad, #d92f7b) !important;
+  border: 3px solid #2c1622 !important;
+  box-shadow:
+    inset 0 3px 7px rgba(255, 255, 255, .55),
+    0 3px 7px rgba(91, 20, 55, .35) !important;
+}
+
+.button.pressed,
+.face.pressed,
+.bumper.pressed,
+.trigger.pressed,
+.back.pressed,
+.start.pressed {
+  background: #ffbfd9 !important;
+  transform: scale(.94);
+}
+
+/* Sticks */
+.stick,
+.wheel {
+  background:
+    radial-gradient(circle at 45% 40%, #35313a 0 32%, #16151b 34% 100%) !important;
+  border: 5px solid #ffd6e8 !important;
+  box-shadow:
+    inset 0 0 12px #000,
+    0 0 0 4px rgba(227, 64, 129, .55) !important;
+}
+
+/* Touchpad as sakura landscape vibe */
+.touchpad,
+.touch-pad {
+  background:
+    radial-gradient(circle at 72% 28%, #fff9e7 0 7%, transparent 8%),
+    linear-gradient(160deg, #ffd4e7, #ffeaf3 34%, #a8c3e8 66%, #f59fc1) !important;
+  border: 3px solid #211720 !important;
+  border-radius: 14px !important;
+  box-shadow: inset 0 0 18px rgba(255, 255, 255, .55) !important;
+}
+
+/* PlayStation/home button */
+.meta,
+.home {
+  background: #15151b !important;
+  border: 3px solid #ffd3e6 !important;
+  box-shadow: 0 0 8px rgba(255, 124, 180, .7) !important;
+}
+
+/* Hide default ugly disconnected stuff */
+.disconnected div {
+  opacity: .25;
+}
