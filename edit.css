@@ -1,30 +1,43 @@
 /* Sakura PS4 Gamepad Viewer Skin */
 
-/* Base controller */
+/* Image swaps only */
 .edit .controller.ds4,
 .controller.edit {
   background: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/base-custom.png");
 }
 
-/* D-pad sprite */
 .edit .face {
   position: absolute;
   background: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/dpad-custom.png");
 }
 
-/* Stick sprite */
 .edit .stick {
   position: absolute;
   background: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/sticks-custom.png");
 }
 
-/* Tiny alignment fixes only */
+/* Alignment controls */
+
+/* D-pad cluster */
 .edit .dpad {
-  left: 96px !important;
-  /* default is 92px */
+  left: 92px !important;
+  top: 181px !important;
 }
 
+/* Face buttons cluster */
 .edit .abxy {
-  left: 564px !important;
-  /* default is 567px */
+  left: 567px !important;
+  top: 159px !important;
+}
+
+/* Share / Options buttons */
+.edit .arrows {
+  left: 227px !important;
+  top: 142px !important;
+}
+
+/* Analog stick cluster */
+.edit .sticks {
+  left: 228px !important;
+  top: 308px !important;
 }
