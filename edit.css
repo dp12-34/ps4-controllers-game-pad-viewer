@@ -1,0 +1,73 @@
+/* Base image swaps */
+.edit .controller.ds4,
+.controller.edit {
+  background: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/base-custom.png");
+}
+
+.edit .face {
+  position: absolute;
+  background: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/dpad-custom.png");
+}
+
+.edit .stick {
+  position: absolute;
+  background: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/sticks-custom.png");
+}
+
+/* Alignment tweak from current screenshot */
+
+/* D-pad: move right 4, down 1 */
+.controller.ds4.edit .dpad,
+.ds4.edit .dpad,
+.edit .dpad {
+  left: 104px !important;
+  top: 179px !important;
+}
+
+/* Face buttons: move left 6, up 2 */
+.controller.ds4.edit .abxy,
+.ds4.edit .abxy,
+.edit .abxy {
+  left: 563px !important;
+  top: 159px !important;
+}
+
+/* L2 / L1: move right 3, down 2 */
+.controller.ds4.edit .trigger.left,
+.ds4.edit .trigger.left,
+.edit .trigger.left,
+.controller.ds4.edit .bumper.left,
+.ds4.edit .bumper.left,
+.edit .bumper.left {
+  position: relative !important;
+  left: 13px !important;
+  top: 6px !important;
+}
+
+/* R2 / R1: move left 3, down 2 */
+.controller.ds4.edit .trigger.right,
+.ds4.edit .trigger.right,
+.edit .trigger.right,
+.controller.ds4.edit .bumper.right,
+.ds4.edit .bumper.right,
+.edit .bumper.right {
+  position: relative !important;
+  right: 13px !important;
+  top: 6px !important;
+}
+
+/* Left stick: move left 1, down 1 */
+.controller.ds4.edit .stick.left,
+.ds4.edit .stick.left,
+.edit .stick.left {
+  top: 3px !important;
+  left: -3px !important;
+}
+
+/* Right stick: locked, do not touch */
+.controller.ds4.edit .stick.right,
+.ds4.edit .stick.right,
+.edit .stick.right {
+  top: -6px !important;
+  left: calc(100% - 111px) !important;
+}
