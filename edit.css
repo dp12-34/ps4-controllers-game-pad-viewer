@@ -15,51 +15,50 @@
 }
 
 /* Alignment fixes - reversed direction */
+/* Final alignment pass v2 */
 
-/* Final alignment pass */
-
-/* D-pad: up and right */
+/* D-pad: 1px down and 1px right from previous */
 .edit .dpad,
 .controller.edit .dpad {
-  left: 98px !important;
-  /* default 92 */
-  top: 176px !important;
-  /* default 181 */
+  left: 99px !important;
+  top: 177px !important;
 }
 
-/* Face buttons: down and right */
+/* Face buttons: a couple px up and left */
 .edit .abxy,
 .controller.edit .abxy {
-  left: 573px !important;
-  /* default 567 */
-  top: 165px !important;
-  /* default 159 */
+  left: 571px !important;
+  top: 163px !important;
 }
 
-/* L2 / L1: move right */
+/* L2 / L1: 2px down and right */
 .edit .trigger.left,
 .controller.edit .trigger.left,
 .edit .bumper.left,
 .controller.edit .bumper.left {
-  margin-left: 6px !important;
+  margin-left: 8px !important;
+  position: relative !important;
+  top: 2px !important;
 }
 
-/* R2 / R1: move left */
+/* R2 / R1: 2px down and left */
 .edit .trigger.right,
 .controller.edit .trigger.right,
 .edit .bumper.right,
 .controller.edit .bumper.right {
-  margin-right: 6px !important;
+  margin-right: 8px !important;
+  position: relative !important;
+  top: 2px !important;
 }
 
-/* Left stick: up only */
+/* Left stick: 1px down and left */
 .edit .stick.left,
 .controller.edit .stick.left {
-  top: -6px !important;
-  left: 0 !important;
+  top: -5px !important;
+  left: -1px !important;
 }
 
-/* Right stick: KEEPING THIS because you said it is perfect */
+/* Right stick: KEEP PERFECT */
 .edit .stick.right,
 .controller.edit .stick.right {
   top: -6px !important;
