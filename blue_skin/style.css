@@ -1,130 +1,51 @@
 /* =========================================================
-   Cream + Mocha PS4 Controller Skin
+   Simple Mocha / Cream PS4 Controller Skin
    For GamePad Viewer using editcss=
    ========================================================= */
 
-
-/* Main shell: warm cream */
+/* 
+   One global filter only.
+   This prevents blue/teal/green from appearing because of stacked filters.
+*/
 .controller.edit {
     filter:
-        invert(1) sepia(0.24) saturate(0.75) hue-rotate(345deg) brightness(0.98) contrast(1.02) drop-shadow(0 0 10px rgba(255, 232, 205, 0.45)) drop-shadow(0 0 24px rgba(190, 145, 105, 0.22)) !important;
+        invert(1) grayscale(0.65) sepia(0.65) saturate(1.35) hue-rotate(325deg) brightness(0.98) contrast(1.08) drop-shadow(0 0 10px rgba(220, 180, 135, 0.45)) drop-shadow(0 0 24px rgba(150, 105, 70, 0.20)) !important;
 }
 
-
-/* =========================================================
-   Force all D-pad pieces to mocha
-   ========================================================= */
-
-.edit .dpad,
-.edit .dpad *,
-.edit .arrows,
-.edit .arrows *,
-.edit .up,
-.edit .down,
-.edit .left,
-.edit .right,
-.edit .up *,
-.edit .down *,
-.edit .left *,
-.edit .right * {
-    filter:
-        invert(1) sepia(1) saturate(2.4) hue-rotate(315deg) brightness(0.72) contrast(1.35) drop-shadow(0 0 4px rgba(115, 75, 45, 0.35)) !important;
-}
-
-
-/* =========================================================
-   Force ALL face buttons to same mocha
-   This should fix triangle/square/circle staying colorful.
-   ========================================================= */
-
+/* Do not recolor child elements separately.
+   This is the important part.
+   It prevents the teal/blue/gray double-filter issue.
+*/
+.controller.edit *,
 .edit .face,
 .edit .face *,
 .edit .button,
 .edit .button *,
-.edit .triangle,
-.edit .triangle *,
-.edit .circle,
-.edit .circle *,
-.edit .cross,
-.edit .cross *,
-.edit .square,
-.edit .square *,
-.edit .triangle::before,
-.edit .triangle::after,
-.edit .circle::before,
-.edit .circle::after,
-.edit .cross::before,
-.edit .cross::after,
-.edit .square::before,
-.edit .square::after {
-    filter:
-        invert(1) sepia(1) saturate(2.4) hue-rotate(315deg) brightness(0.72) contrast(1.35) drop-shadow(0 0 4px rgba(115, 75, 45, 0.35)) !important;
-}
-
-
-/* =========================================================
-   Sticks: darker neutral mocha/gray instead of blue-gray
-   ========================================================= */
-
+.edit .dpad,
+.edit .dpad *,
+.edit .arrows,
+.edit .arrows *,
 .edit .stick,
 .edit .stick *,
-.edit .stick.left,
-.edit .stick.right,
-.edit .stick.left *,
-.edit .stick.right * {
-    filter:
-        invert(1) sepia(0.8) saturate(1.45) hue-rotate(320deg) brightness(0.58) contrast(1.35) drop-shadow(0 0 5px rgba(115, 75, 45, 0.35)) !important;
-}
-
-
-/* =========================================================
-   Triggers, bumpers, touchpad: light mocha / cream
-   ========================================================= */
-
 .edit .trigger,
 .edit .trigger *,
 .edit .bumper,
 .edit .bumper *,
-.edit .triggers,
-.edit .triggers *,
 .edit .touchpad,
 .edit .touchpad * {
-    filter:
-        invert(1) sepia(1) saturate(1.45) hue-rotate(320deg) brightness(0.86) contrast(1.15) drop-shadow(0 0 5px rgba(190, 145, 105, 0.28)) !important;
+    filter: none !important;
 }
 
-
-/* =========================================================
-   Share / Options / PS: readable dark mocha/black
-   ========================================================= */
-
-.edit .meta,
-.edit .meta *,
-.edit .start,
-.edit .start *,
-.edit .back,
-.edit .back *,
-.edit .p0,
-.edit .p1,
-.edit .p2,
-.edit .p3 {
+/* Pressed state: subtle warm mocha glow only */
+.controller.edit .pressed,
+.controller.edit .pressed *,
+.controller.edit .button.pressed,
+.controller.edit .face.pressed,
+.controller.edit .dpad .pressed,
+.controller.edit .stick.pressed,
+.controller.edit .trigger.pressed,
+.controller.edit .bumper.pressed,
+.controller.edit .touchpad.pressed {
     filter:
-        grayscale(1) sepia(1) saturate(1.1) hue-rotate(320deg) brightness(0.55) contrast(1.55) !important;
-}
-
-
-/* =========================================================
-   Pressed states: warm mocha glow
-   ========================================================= */
-
-.edit .pressed,
-.edit .pressed *,
-.edit .button.pressed,
-.edit .face.pressed,
-.edit .bumper.pressed,
-.edit .trigger.pressed,
-.edit .touchpad.pressed,
-.edit .meta.pressed {
-    filter:
-        invert(1) sepia(1) saturate(2.6) hue-rotate(315deg) brightness(0.95) contrast(1.25) drop-shadow(0 0 8px rgba(255, 240, 220, 0.95)) drop-shadow(0 0 15px rgba(190, 145, 105, 0.9)) !important;
+        drop-shadow(0 0 7px rgba(255, 240, 220, 0.95)) drop-shadow(0 0 14px rgba(190, 140, 95, 0.85)) !important;
 }
