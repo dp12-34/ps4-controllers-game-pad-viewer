@@ -1,146 +1,124 @@
 /* =========================================================
-   Cream / Mocha PS4 Controller Skin
+   Cream + Mocha PS4 Controller Skin
    For GamePad Viewer using editcss=
    ========================================================= */
 
 
-/* ---------------------------------------------------------
-   Theme values
-   --------------------------------------------------------- */
-
-.edit {
-    --cream-glow: rgba(255, 238, 210, 0.65);
-    --mocha-glow: rgba(205, 165, 125, 0.85);
-    --mocha-shadow: rgba(120, 85, 55, 0.35);
-}
-
-
-/* ---------------------------------------------------------
-   Main controller shell
-   Dark default controller -> warm cream / light mocha
-   --------------------------------------------------------- */
-
+/* Main shell: warm cream */
 .controller.edit {
     filter:
-        invert(1) sepia(0.28) saturate(0.95) hue-rotate(345deg) brightness(1.03) contrast(0.98) drop-shadow(0 0 10px rgba(255, 238, 210, 0.55)) drop-shadow(0 0 24px rgba(205, 165, 125, 0.30));
+        invert(1) sepia(0.24) saturate(0.75) hue-rotate(345deg) brightness(0.98) contrast(1.02) drop-shadow(0 0 10px rgba(255, 232, 205, 0.45)) drop-shadow(0 0 24px rgba(190, 145, 105, 0.22)) !important;
 }
 
 
-/* ---------------------------------------------------------
-   Main accent areas
-   Triggers, bumpers, touchpad, sticks become mocha/tan.
-   --------------------------------------------------------- */
-
-.edit .trigger,
-.edit .bumper,
-.edit .triggers,
-.edit .touchpad,
-.edit .stick,
-.edit .stick.left,
-.edit .stick.right {
-    filter:
-        invert(1) sepia(1) saturate(1.65) hue-rotate(325deg) brightness(0.88) contrast(1.12) drop-shadow(0 0 6px rgba(205, 165, 125, 0.45));
-}
-
-
-/* L2 / R2 top triggers */
-.edit .trigger.left,
-.edit .trigger.right,
-.edit .left.trigger,
-.edit .right.trigger {
-    filter:
-        invert(1) sepia(1) saturate(1.75) hue-rotate(325deg) brightness(0.9) contrast(1.14) drop-shadow(0 0 7px rgba(205, 165, 125, 0.5));
-}
-
-
-/* L1 / R1 bumpers */
-.edit .bumper.left,
-.edit .bumper.right,
-.edit .left.bumper,
-.edit .right.bumper {
-    filter:
-        invert(1) sepia(1) saturate(1.55) hue-rotate(325deg) brightness(0.86) contrast(1.12) drop-shadow(0 0 6px rgba(205, 165, 125, 0.45));
-}
-
-
-/* Touchpad: visible light mocha, not white */
-.edit .touchpad {
-    filter:
-        invert(1) sepia(1) saturate(1.45) hue-rotate(325deg) brightness(0.94) contrast(1.08) drop-shadow(0 0 6px rgba(205, 165, 125, 0.42));
-}
-
-
-/* Analog sticks: darker mocha centers for contrast */
-.edit .stick,
-.edit .stick.left,
-.edit .stick.right {
-    filter:
-        invert(1) sepia(1) saturate(1.95) hue-rotate(325deg) brightness(0.62) contrast(1.28) drop-shadow(0 0 6px rgba(120, 85, 55, 0.45));
-}
-
-
-/* ---------------------------------------------------------
-   D-pad: light mocha/brown, clearly visible
-   --------------------------------------------------------- */
+/* =========================================================
+   Force all D-pad pieces to mocha
+   ========================================================= */
 
 .edit .dpad,
+.edit .dpad *,
 .edit .arrows,
+.edit .arrows *,
 .edit .up,
 .edit .down,
 .edit .left,
-.edit .right {
+.edit .right,
+.edit .up *,
+.edit .down *,
+.edit .left *,
+.edit .right * {
     filter:
-        invert(1) sepia(1) saturate(1.85) hue-rotate(325deg) brightness(0.74) contrast(1.25) drop-shadow(0 0 4px rgba(120, 85, 55, 0.45));
+        invert(1) sepia(1) saturate(2.4) hue-rotate(315deg) brightness(0.72) contrast(1.35) drop-shadow(0 0 4px rgba(115, 75, 45, 0.35)) !important;
 }
 
 
-/* ---------------------------------------------------------
-   Face buttons: mocha instead of original colored symbols
-   --------------------------------------------------------- */
+/* =========================================================
+   Force ALL face buttons to same mocha
+   This should fix triangle/square/circle staying colorful.
+   ========================================================= */
 
 .edit .face,
-.edit .face .button,
+.edit .face *,
+.edit .button,
+.edit .button *,
 .edit .triangle,
+.edit .triangle *,
 .edit .circle,
+.edit .circle *,
 .edit .cross,
-.edit .square {
-    filter:
-        invert(1) sepia(1) saturate(1.85) hue-rotate(325deg) brightness(0.74) contrast(1.25) drop-shadow(0 0 4px rgba(120, 85, 55, 0.45));
-}
-
-
-/* Try to neutralize PlayStation symbol colors */
+.edit .cross *,
+.edit .square,
+.edit .square *,
 .edit .triangle::before,
-.edit .circle::before,
-.edit .cross::before,
-.edit .square::before,
 .edit .triangle::after,
+.edit .circle::before,
 .edit .circle::after,
+.edit .cross::before,
 .edit .cross::after,
+.edit .square::before,
 .edit .square::after {
     filter:
-        grayscale(1) sepia(1) saturate(1.7) hue-rotate(325deg) brightness(0.78) contrast(1.25);
+        invert(1) sepia(1) saturate(2.4) hue-rotate(315deg) brightness(0.72) contrast(1.35) drop-shadow(0 0 4px rgba(115, 75, 45, 0.35)) !important;
 }
 
 
-/* Share / Options / PS: readable dark mocha */
+/* =========================================================
+   Sticks: darker neutral mocha/gray instead of blue-gray
+   ========================================================= */
+
+.edit .stick,
+.edit .stick *,
+.edit .stick.left,
+.edit .stick.right,
+.edit .stick.left *,
+.edit .stick.right * {
+    filter:
+        invert(1) sepia(0.8) saturate(1.45) hue-rotate(320deg) brightness(0.58) contrast(1.35) drop-shadow(0 0 5px rgba(115, 75, 45, 0.35)) !important;
+}
+
+
+/* =========================================================
+   Triggers, bumpers, touchpad: light mocha / cream
+   ========================================================= */
+
+.edit .trigger,
+.edit .trigger *,
+.edit .bumper,
+.edit .bumper *,
+.edit .triggers,
+.edit .triggers *,
+.edit .touchpad,
+.edit .touchpad * {
+    filter:
+        invert(1) sepia(1) saturate(1.45) hue-rotate(320deg) brightness(0.86) contrast(1.15) drop-shadow(0 0 5px rgba(190, 145, 105, 0.28)) !important;
+}
+
+
+/* =========================================================
+   Share / Options / PS: readable dark mocha/black
+   ========================================================= */
+
 .edit .meta,
+.edit .meta *,
 .edit .start,
+.edit .start *,
 .edit .back,
+.edit .back *,
 .edit .p0,
 .edit .p1,
 .edit .p2,
 .edit .p3 {
     filter:
-        grayscale(1) sepia(1) saturate(1.4) hue-rotate(325deg) brightness(0.58) contrast(1.45);
+        grayscale(1) sepia(1) saturate(1.1) hue-rotate(320deg) brightness(0.55) contrast(1.55) !important;
 }
 
 
-/* ---------------------------------------------------------
-   Pressed states: warm cream/mocha glow
-   --------------------------------------------------------- */
+/* =========================================================
+   Pressed states: warm mocha glow
+   ========================================================= */
 
 .edit .pressed,
+.edit .pressed *,
 .edit .button.pressed,
 .edit .face.pressed,
 .edit .bumper.pressed,
@@ -148,31 +126,5 @@
 .edit .touchpad.pressed,
 .edit .meta.pressed {
     filter:
-        invert(1) sepia(1) saturate(2.1) hue-rotate(325deg) brightness(1.05) contrast(1.15) drop-shadow(0 0 8px rgba(255, 245, 225, 0.95)) drop-shadow(0 0 15px rgba(205, 165, 125, 0.9));
-}
-
-
-/* Face buttons and D-pad pressed: stronger mocha glow */
-.edit .face .pressed,
-.edit .triangle.pressed,
-.edit .circle.pressed,
-.edit .cross.pressed,
-.edit .square.pressed,
-.edit .dpad .pressed,
-.edit .arrows .pressed,
-.edit .up.pressed,
-.edit .down.pressed,
-.edit .left.pressed,
-.edit .right.pressed {
-    filter:
-        invert(1) sepia(1) saturate(2.2) hue-rotate(325deg) brightness(1.02) contrast(1.18) drop-shadow(0 0 8px rgba(255, 245, 225, 0.95)) drop-shadow(0 0 15px rgba(205, 165, 125, 0.95));
-}
-
-
-/* Sticks pressed */
-.edit .stick.pressed,
-.edit .stick.left.pressed,
-.edit .stick.right.pressed {
-    filter:
-        invert(1) sepia(1) saturate(2.2) hue-rotate(325deg) brightness(0.95) contrast(1.22) drop-shadow(0 0 8px rgba(255, 245, 225, 0.95)) drop-shadow(0 0 15px rgba(205, 165, 125, 0.95));
+        invert(1) sepia(1) saturate(2.6) hue-rotate(315deg) brightness(0.95) contrast(1.25) drop-shadow(0 0 8px rgba(255, 240, 220, 0.95)) drop-shadow(0 0 15px rgba(190, 145, 105, 0.9)) !important;
 }
