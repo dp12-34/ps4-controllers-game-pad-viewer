@@ -26,25 +26,25 @@
         drop-shadow(0 0 42px rgba(115, 68, 15, 0.30)) !important;
 }
 
-/* ── Face buttons → soothing light brown ────────────────── */
+/* ── Face buttons → light brown ─────────────────────────── */
 .controller.edit .face,
 .controller.edit .face *,
 .controller.edit .abxy,
 .controller.edit .abxy * {
-    filter: brightness(0.52) !important;
+    filter: brightness(0.72) !important;
 }
 
-/* ── D-pad → slightly deeper light brown ────────────────── */
+/* ── D-pad → light brown ─────────────────────────────────── */
 .controller.edit .dpad,
 .controller.edit .dpad * {
-    filter: brightness(0.46) !important;
+    filter: brightness(0.65) !important;
 }
 
-/* ── Analog sticks → medium warm brown ──────────────────── */
+/* ── Analog sticks → lighter warm brown ─────────────────── */
 .controller.edit .stick,
 .controller.edit .stick.left,
 .controller.edit .stick.right {
-    filter: brightness(0.36) contrast(1.08) !important;
+    filter: brightness(0.58) contrast(1.05) !important;
 }
 
 /* ── Triggers + bumpers → lightest brown accent ─────────── */
