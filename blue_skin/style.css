@@ -1,53 +1,45 @@
 /* =========================================================
-   White / Blue / Light Mocha PS4 Controller Skin
+   Cream / Mocha PS4 Controller Skin
    For GamePad Viewer using editcss=
    ========================================================= */
 
 
 /* ---------------------------------------------------------
-   Global values
+   Theme values
    --------------------------------------------------------- */
 
 .edit {
-    --blue: rgba(80, 185, 255, 0.95);
-    --blue-soft: rgba(80, 185, 255, 0.45);
-    --blue-light: rgba(155, 225, 255, 0.8);
-
-    /* Light mocha/tan */
-    --mocha: rgba(205, 170, 135, 0.95);
-    --mocha-soft: rgba(225, 195, 160, 0.85);
-    --mocha-glow: rgba(235, 205, 170, 0.75);
-
-    --white: rgba(255, 255, 255, 0.96);
+    --cream-glow: rgba(255, 238, 210, 0.65);
+    --mocha-glow: rgba(205, 165, 125, 0.85);
+    --mocha-shadow: rgba(120, 85, 55, 0.35);
 }
 
 
 /* ---------------------------------------------------------
    Main controller shell
-   This keeps the slightly warm/brown-white look you liked.
+   Dark default controller -> warm cream / light mocha
    --------------------------------------------------------- */
 
 .controller.edit {
     filter:
-        invert(1) grayscale(0.12) sepia(0.12) saturate(1.05) hue-rotate(345deg) brightness(1.04) contrast(0.96) drop-shadow(0 0 10px rgba(80, 185, 255, 0.62)) drop-shadow(0 0 26px rgba(80, 185, 255, 0.32));
+        invert(1) sepia(0.28) saturate(0.95) hue-rotate(345deg) brightness(1.03) contrast(0.98) drop-shadow(0 0 10px rgba(255, 238, 210, 0.55)) drop-shadow(0 0 24px rgba(205, 165, 125, 0.30));
 }
 
 
 /* ---------------------------------------------------------
-   Blue accent zones
-   These stay as the blue/turquoise reference areas.
+   Main accent areas
+   Triggers, bumpers, touchpad, sticks become mocha/tan.
    --------------------------------------------------------- */
 
 .edit .trigger,
 .edit .bumper,
 .edit .triggers,
-.edit .quadrant,
 .edit .touchpad,
 .edit .stick,
 .edit .stick.left,
 .edit .stick.right {
     filter:
-        invert(1) sepia(1) saturate(2.4) hue-rotate(155deg) brightness(1.05) contrast(0.95) drop-shadow(0 0 6px rgba(80, 185, 255, 0.45));
+        invert(1) sepia(1) saturate(1.65) hue-rotate(325deg) brightness(0.88) contrast(1.12) drop-shadow(0 0 6px rgba(205, 165, 125, 0.45));
 }
 
 
@@ -57,7 +49,7 @@
 .edit .left.trigger,
 .edit .right.trigger {
     filter:
-        invert(1) sepia(1) saturate(2.8) hue-rotate(155deg) brightness(1.08) contrast(0.95) drop-shadow(0 0 8px rgba(80, 185, 255, 0.6));
+        invert(1) sepia(1) saturate(1.75) hue-rotate(325deg) brightness(0.9) contrast(1.14) drop-shadow(0 0 7px rgba(205, 165, 125, 0.5));
 }
 
 
@@ -67,28 +59,28 @@
 .edit .left.bumper,
 .edit .right.bumper {
     filter:
-        invert(1) sepia(1) saturate(2.2) hue-rotate(155deg) brightness(1.02) contrast(0.95) drop-shadow(0 0 6px rgba(80, 185, 255, 0.45));
+        invert(1) sepia(1) saturate(1.55) hue-rotate(325deg) brightness(0.86) contrast(1.12) drop-shadow(0 0 6px rgba(205, 165, 125, 0.45));
 }
 
 
-/* Touchpad blue area */
+/* Touchpad: visible light mocha, not white */
 .edit .touchpad {
     filter:
-        invert(1) sepia(1) saturate(2.5) hue-rotate(155deg) brightness(1.08) contrast(0.92) drop-shadow(0 0 8px rgba(80, 185, 255, 0.5));
+        invert(1) sepia(1) saturate(1.45) hue-rotate(325deg) brightness(0.94) contrast(1.08) drop-shadow(0 0 6px rgba(205, 165, 125, 0.42));
 }
 
 
-/* Analog sticks */
+/* Analog sticks: darker mocha centers for contrast */
 .edit .stick,
 .edit .stick.left,
 .edit .stick.right {
     filter:
-        invert(1) sepia(1) saturate(2.6) hue-rotate(155deg) brightness(1.08) contrast(0.9) drop-shadow(0 0 7px rgba(80, 185, 255, 0.5));
+        invert(1) sepia(1) saturate(1.95) hue-rotate(325deg) brightness(0.62) contrast(1.28) drop-shadow(0 0 6px rgba(120, 85, 55, 0.45));
 }
 
 
 /* ---------------------------------------------------------
-   Light mocha D-pad
+   D-pad: light mocha/brown, clearly visible
    --------------------------------------------------------- */
 
 .edit .dpad,
@@ -98,13 +90,12 @@
 .edit .left,
 .edit .right {
     filter:
-        invert(1) sepia(1) saturate(1.35) hue-rotate(330deg) brightness(0.92) contrast(1.05) drop-shadow(0 0 4px rgba(235, 205, 170, 0.35));
+        invert(1) sepia(1) saturate(1.85) hue-rotate(325deg) brightness(0.74) contrast(1.25) drop-shadow(0 0 4px rgba(120, 85, 55, 0.45));
 }
 
 
 /* ---------------------------------------------------------
-   Light mocha face buttons
-   This makes square / triangle / circle / X neutral mocha.
+   Face buttons: mocha instead of original colored symbols
    --------------------------------------------------------- */
 
 .edit .face,
@@ -114,11 +105,25 @@
 .edit .cross,
 .edit .square {
     filter:
-        invert(1) sepia(1) saturate(1.45) hue-rotate(330deg) brightness(0.94) contrast(1.05) drop-shadow(0 0 4px rgba(235, 205, 170, 0.35));
+        invert(1) sepia(1) saturate(1.85) hue-rotate(325deg) brightness(0.74) contrast(1.25) drop-shadow(0 0 4px rgba(120, 85, 55, 0.45));
 }
 
 
-/* Share / Options / PS stay readable and neutral */
+/* Try to neutralize PlayStation symbol colors */
+.edit .triangle::before,
+.edit .circle::before,
+.edit .cross::before,
+.edit .square::before,
+.edit .triangle::after,
+.edit .circle::after,
+.edit .cross::after,
+.edit .square::after {
+    filter:
+        grayscale(1) sepia(1) saturate(1.7) hue-rotate(325deg) brightness(0.78) contrast(1.25);
+}
+
+
+/* Share / Options / PS: readable dark mocha */
 .edit .meta,
 .edit .start,
 .edit .back,
@@ -127,12 +132,12 @@
 .edit .p2,
 .edit .p3 {
     filter:
-        grayscale(1) saturate(0) brightness(0.85) contrast(1.2);
+        grayscale(1) sepia(1) saturate(1.4) hue-rotate(325deg) brightness(0.58) contrast(1.45);
 }
 
 
 /* ---------------------------------------------------------
-   Pressed states
+   Pressed states: warm cream/mocha glow
    --------------------------------------------------------- */
 
 .edit .pressed,
@@ -143,22 +148,16 @@
 .edit .touchpad.pressed,
 .edit .meta.pressed {
     filter:
-        invert(1) sepia(1) saturate(3) hue-rotate(155deg) brightness(1.35) contrast(1.05) drop-shadow(0 0 8px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 16px rgba(80, 185, 255, 0.95));
+        invert(1) sepia(1) saturate(2.1) hue-rotate(325deg) brightness(1.05) contrast(1.15) drop-shadow(0 0 8px rgba(255, 245, 225, 0.95)) drop-shadow(0 0 15px rgba(205, 165, 125, 0.9));
 }
 
 
-/* Face buttons pressed: mocha glow */
+/* Face buttons and D-pad pressed: stronger mocha glow */
 .edit .face .pressed,
 .edit .triangle.pressed,
 .edit .circle.pressed,
 .edit .cross.pressed,
-.edit .square.pressed {
-    filter:
-        invert(1) sepia(1) saturate(1.7) hue-rotate(330deg) brightness(1.18) contrast(1.08) drop-shadow(0 0 7px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 14px rgba(235, 205, 170, 0.9));
-}
-
-
-/* D-pad pressed: mocha glow */
+.edit .square.pressed,
 .edit .dpad .pressed,
 .edit .arrows .pressed,
 .edit .up.pressed,
@@ -166,14 +165,14 @@
 .edit .left.pressed,
 .edit .right.pressed {
     filter:
-        invert(1) sepia(1) saturate(1.7) hue-rotate(330deg) brightness(1.18) contrast(1.08) drop-shadow(0 0 7px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 14px rgba(235, 205, 170, 0.9));
+        invert(1) sepia(1) saturate(2.2) hue-rotate(325deg) brightness(1.02) contrast(1.18) drop-shadow(0 0 8px rgba(255, 245, 225, 0.95)) drop-shadow(0 0 15px rgba(205, 165, 125, 0.95));
 }
 
 
-/* Sticks pressed: blue glow */
+/* Sticks pressed */
 .edit .stick.pressed,
 .edit .stick.left.pressed,
 .edit .stick.right.pressed {
     filter:
-        invert(1) sepia(1) saturate(3) hue-rotate(155deg) brightness(1.3) contrast(1.05) drop-shadow(0 0 8px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 16px rgba(80, 185, 255, 0.95));
+        invert(1) sepia(1) saturate(2.2) hue-rotate(325deg) brightness(0.95) contrast(1.22) drop-shadow(0 0 8px rgba(255, 245, 225, 0.95)) drop-shadow(0 0 15px rgba(205, 165, 125, 0.95));
 }
