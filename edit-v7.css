@@ -1,190 +1,153 @@
 /* ============================================================
    Sakura PS4 GamePad Viewer Skin
-   For use with: ?editcss=<raw_url_to_this_file>
-   Target: gamepadviewer.com with PS4 skin (s=5)
-   Base image: 806x599  |  Stick sheet: 286x94  |  Dpad sheet: 179x104
+   For use with: ?p=1&s=5&editcss=<raw_url>
    ============================================================ */
 
 /* ── CONTROLLER BODY ─────────────────────────────────────── */
-.edit .controller.ds4,
-.edit.controller.ds4 {
+.edit .controller.ds4 {
   background-image: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/base-custom.png") !important;
   background-size: 100% 100% !important;
   background-repeat: no-repeat !important;
   background-position: 0 0 !important;
 }
 
-/* ── DPAD ────────────────────────────────────────────────── */
-/*
-   dpad-custom.png is 179×104
-   Layout: 4 cols × 2 rows
-     Col 1 (x 0–35):   LEFT arrow
-     Col 2 (x 37–72):  DOWN arrow
-     Col 3 (x 75–126): UP arrow
-     Col 4 (x 128–178): RIGHT arrow
-   Row 1 (y 0–50):   normal / unpressed
-   Row 2 (y 53–103): highlighted / pressed
-
-   Dpad well center in base image: (152, 269)
-   Overlay size: 120×120, so top-left = (92, 209)
-*/
+/* ── DPAD CONTAINER ──────────────────────────────────────── */
+/* Well center in base image: (152, 269). Container: 153x149 */
 .edit .dpad {
-  left: 92px !important;
-  top: 209px !important;
-  width: 120px !important;
-  height: 120px !important;
+  left: 76px !important;
+  top: 195px !important;
+  width: 153px !important;
+  height: 149px !important;
 }
 
-/* Individual dpad direction buttons */
-.edit .dpad .button {
+/* All .face children share this image */
+.edit .face {
   background-image: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/dpad-custom.png") !important;
   background-size: 179px 104px !important;
-  width: 40px !important;
-  height: 40px !important;
+  position: absolute !important;
 }
 
-/* UP   – sprite col 3 (x 75), row 1 */
-.edit .dpad .up {
+/*
+  dpad-custom.png layout (179x104):
+  Row 1 (y=0):   normal  |  Row 2 (y=-53): pressed
+  Col: LEFT=0  DOWN=-37  UP=-75  RIGHT=-128
+*/
+.edit .face.up {
+  width: 36px !important;
+  height: 52px !important;
+  left: 58px !important;
+  top: 0 !important;
   background-position: -75px 0 !important;
 }
 
-.edit .dpad .up.pressed {
+.edit .face.up.pressed {
   background-position: -75px -53px !important;
 }
 
-/* DOWN – sprite col 2 (x 37), row 1 */
-.edit .dpad .down {
+.edit .face.down {
+  width: 36px !important;
+  height: 52px !important;
+  left: 58px !important;
+  top: 97px !important;
   background-position: -37px 0 !important;
 }
 
-.edit .dpad .down.pressed {
+.edit .face.down.pressed {
   background-position: -37px -53px !important;
 }
 
-/* LEFT – sprite col 1 (x 0), row 1 */
-.edit .dpad .left {
+.edit .face.left {
+  width: 36px !important;
+  height: 38px !important;
+  left: 0 !important;
+  top: 55px !important;
   background-position: 0 0 !important;
 }
 
-.edit .dpad .left.pressed {
+.edit .face.left.pressed {
   background-position: 0 -53px !important;
 }
 
-/* RIGHT – sprite col 4 (x 128), row 1 */
-.edit .dpad .right {
+.edit .face.right {
+  width: 36px !important;
+  height: 38px !important;
+  left: 117px !important;
+  top: 55px !important;
   background-position: -128px 0 !important;
 }
 
-.edit .dpad .right.pressed {
+.edit .face.right.pressed {
   background-position: -128px -53px !important;
 }
 
-/* ── FACE BUTTONS (△ □ ○ ✕) ──────────────────────────────── */
-/*
-   Face button area center in base image: (614, 239)
-   Overlay size: 120×120, so top-left = (554, 179)
-*/
+/* ── FACE BUTTONS (abxy) ─────────────────────────────────── */
+/* Center in base image: (614, 239). Container: 130x130 */
 .edit .abxy {
-  left: 554px !important;
-  top: 179px !important;
-  width: 120px !important;
-  height: 120px !important;
+  left: 549px !important;
+  top: 174px !important;
+  width: 130px !important;
+  height: 130px !important;
 }
 
-/* ── SHARE / OPTIONS BUTTONS ─────────────────────────────── */
-/*
-   Share is left of center (~250, 165), Options is right (~530, 165)
-   The .arrows container holds both
-*/
+/* ── SHARE / OPTIONS (.arrows) ───────────────────────────── */
 .edit .arrows {
-  left: 242px !important;
-  top: 150px !important;
+  left: 241px !important;
+  top: 171px !important;
+  width: 315px !important;
 }
 
 /* ── TRIGGERS (L2 / R2) ──────────────────────────────────── */
-/*
-   The .triggers container spans across the top of the controller.
-   L2 center ~(162, 92), R2 center ~(640, 90)
-   Container starts at the left trigger and spans to the right.
-*/
 .edit .triggers {
-  left: 108px !important;
+  left: 109px !important;
   top: 2px !important;
-  width: 590px !important;
-}
-
-/* Remove the individual transform offsets that caused double-shift */
-.edit .trigger.left {
-  transform: none !important;
-}
-
-.edit .trigger.right {
-  transform: none !important;
 }
 
 /* ── BUMPERS (L1 / R1) ───────────────────────────────────── */
 .edit .bumpers {
-  left: 108px !important;
+  left: 109px !important;
   top: 96px !important;
-  width: 590px !important;
 }
 
-/* Remove the individual transform offsets */
-.edit .bumper.left {
-  transform: none !important;
-}
-
-.edit .bumper.right {
-  transform: none !important;
-}
-
-/* ── THUMBSTICKS ─────────────────────────────────────────── */
+/* ── STICKS CONTAINER ────────────────────────────────────── */
 /*
-   sticks-custom.png is 286×94
-   Layout: 3 circles side-by-side, each 94×94, gap of 2px between
-     Sprite 1 (x   0–93):  dark/active left stick
-     Sprite 2 (x  96–189): L3 label (light)
-     Sprite 3 (x 192–285): R3 label (light)
-
-   Left  stick well center in base image: (224, 344)
-   Right stick well center in base image: (504, 339)
-   Sprite size: 94×94, so top-left = center - 47
+  Left well center: (224, 344), Right well center: (504, 339)
+  Container spans both wells. Stick sprites: 94x94 each.
+  sticks-custom.png (286x94): sprite1=left(x=0), sprite2=L3(x=-96), sprite3=R3(x=-192)
 */
+.edit .sticks {
+  position: absolute !important;
+  left: 177px !important;
+  top: 292px !important;
+  width: 374px !important;
+  height: 94px !important;
+}
+
 .edit .stick {
   background-image: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/sticks-custom.png") !important;
   background-size: 286px 94px !important;
   width: 94px !important;
   height: 94px !important;
-  /* Reset any inherited positioning logic */
   position: absolute !important;
 }
 
-/* LEFT STICK – use sprite 1 (dark, x=0) */
+/* Left stick: sprite 1 (dark, x=0). top=5 to vertically center within container */
 .edit .stick.left {
-  left: 177px !important;
-  top: 297px !important;
+  left: 0 !important;
+  top: 5px !important;
   background-position: 0 0 !important;
 }
 
-/* LEFT STICK pressed (L3) – use sprite 2 (x=-96) */
 .edit .stick.left.pressed {
   background-position: -96px 0 !important;
 }
 
-/* RIGHT STICK – use sprite 3 (light, x=-192) */
+/* Right stick: sprite 3 (light, x=-192). top=0 */
 .edit .stick.right {
-  left: 457px !important;
-  top: 292px !important;
+  left: 280px !important;
+  top: 0 !important;
   background-position: -192px 0 !important;
 }
 
-/* RIGHT STICK pressed (R3) – stays on sprite 3, already highlighted */
 .edit .stick.right.pressed {
   background-position: -192px 0 !important;
-}
-
-/* ── HIDE DISCONNECTED STATE ─────────────────────────────── */
-/* Prevent the red silhouette from showing over your custom skin */
-.edit .controller.ds4.disconnected {
-  opacity: 0 !important;
 }
