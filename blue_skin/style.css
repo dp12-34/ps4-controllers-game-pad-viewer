@@ -4,24 +4,24 @@
    The base controller is very dark navy (~15% luminance).
 
    Strategy:
-     Parent: grayscale → brightness(6) → sepia
-       - Blasts the dark body to warm white/cream
-       - Applies to EVERYTHING including the chassis
+     Parent: grayscale → sepia → brightness(4)
+       - sepia FIRST while still dark → locks in warm brown ratios
+       - brightness then amplifies those warm ratios to cream
+       - chassis 15% lum → RGB(207, 184, 143) warm tan/cream
 
      Children: brightness < 1.0
-       - REDUCES brightness relative to the parent
-       - net luminance = child_brightness × 6 × 0.15 (body grey)
-       - Face buttons child(0.52) → net 0.62 → light warm tan
-       - Sticks child(0.36)       → net 0.43 → medium warm brown
-       - Pressed child(0.32)      → net 0.38 → darker brown
+       - Multiplies the parent's already-warm output darker
+       - brightness(0.72) → light tan buttons
+       - brightness(0.58) → medium brown sticks
+       - brightness(0.25) → dark brown small buttons
    ========================================================= */
 
-/* ── Parent: chassis → warm white/cream + glow ───────────── */
+/* ── Parent: chassis → warm cream + glow ────────────────── */
 .controller.edit {
     filter:
         grayscale(1)
-        brightness(6.0)
-        sepia(0.60)
+        sepia(1)
+        brightness(4.0)
         drop-shadow(0 0 18px rgba(160, 105, 40, 0.52))
         drop-shadow(0 0 42px rgba(115, 68, 15, 0.30)) !important;
 }
