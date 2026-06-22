@@ -1,25 +1,24 @@
 /* =========================================================
-   Blue / White PS4 Controller Skin
+   White + Light Blue PS4 Controller Skin
    For Gamepad Viewer using editcss=
-   URL format:
-   https://gamepadviewer.com/?p=1&s=5&editcss=YOUR_CSS_URL
    ========================================================= */
 
 
-/* Main controller body
-   Goal: mostly white base, light blue glow
+/* Main controller body:
+   Invert turns the dark default PS4 controller into white.
+   The rest adds a very light icy-blue tint and glow.
 */
 .controller.edit {
     filter:
-        grayscale(1) sepia(0.08) saturate(1.15) hue-rotate(175deg) brightness(1.82) contrast(0.88) drop-shadow(0 0 8px rgba(140, 215, 255, 0.55)) drop-shadow(0 0 22px rgba(140, 215, 255, 0.28));
+        invert(1) grayscale(0.15) sepia(0.08) saturate(1.25) hue-rotate(165deg) brightness(1.08) contrast(0.92) drop-shadow(0 0 10px rgba(155, 225, 255, 0.65)) drop-shadow(0 0 24px rgba(155, 225, 255, 0.35));
 }
 
 
 /* Shared colors */
 .edit {
-    --blue-glow: rgba(140, 215, 255, 0.9);
-    --soft-blue-glow: rgba(140, 215, 255, 0.45);
-    --white-glow: rgba(255, 255, 255, 0.95);
+    --blue-glow: rgba(155, 225, 255, 0.95);
+    --soft-blue-glow: rgba(155, 225, 255, 0.45);
+    --white-glow: rgba(255, 255, 255, 0.98);
 }
 
 
@@ -32,7 +31,7 @@
 .edit .touchpad.pressed,
 .edit .meta.pressed {
     filter:
-        brightness(1.55) saturate(1.15) drop-shadow(0 0 7px var(--white-glow)) drop-shadow(0 0 13px var(--blue-glow));
+        brightness(1.35) saturate(1.3) drop-shadow(0 0 7px var(--white-glow)) drop-shadow(0 0 14px var(--blue-glow));
 }
 
 
@@ -43,7 +42,7 @@
 .edit .cross.pressed,
 .edit .square.pressed {
     filter:
-        brightness(1.65) saturate(1.15) drop-shadow(0 0 8px var(--white-glow)) drop-shadow(0 0 14px var(--blue-glow));
+        brightness(1.45) saturate(1.35) drop-shadow(0 0 8px var(--white-glow)) drop-shadow(0 0 15px var(--blue-glow));
 }
 
 
@@ -55,16 +54,16 @@
 .edit .left.pressed,
 .edit .right.pressed {
     filter:
-        brightness(1.65) saturate(1.1) drop-shadow(0 0 8px var(--white-glow)) drop-shadow(0 0 13px var(--blue-glow));
+        brightness(1.45) saturate(1.25) drop-shadow(0 0 8px var(--white-glow)) drop-shadow(0 0 14px var(--blue-glow));
 }
 
 
-/* Sticks */
+/* Stick glow */
 .edit .stick,
 .edit .stick.left,
 .edit .stick.right {
     filter:
-        brightness(1.08) drop-shadow(0 0 5px rgba(140, 215, 255, 0.25));
+        brightness(1.08) drop-shadow(0 0 5px rgba(155, 225, 255, 0.3));
 }
 
 
@@ -73,7 +72,7 @@
 .edit .stick.left.pressed,
 .edit .stick.right.pressed {
     filter:
-        brightness(1.5) drop-shadow(0 0 8px var(--white-glow)) drop-shadow(0 0 13px var(--blue-glow));
+        brightness(1.45) drop-shadow(0 0 8px var(--white-glow)) drop-shadow(0 0 14px var(--blue-glow));
 }
 
 
@@ -85,7 +84,7 @@
 .edit .left.trigger.pressed,
 .edit .right.trigger.pressed {
     filter:
-        brightness(1.6) saturate(1.15) drop-shadow(0 0 8px var(--white-glow)) drop-shadow(0 0 14px var(--blue-glow));
+        brightness(1.45) saturate(1.3) drop-shadow(0 0 8px var(--white-glow)) drop-shadow(0 0 15px var(--blue-glow));
 }
 
 
@@ -95,16 +94,5 @@
 .edit .start.pressed,
 .edit .back.pressed {
     filter:
-        brightness(1.55) drop-shadow(0 0 7px var(--white-glow)) drop-shadow(0 0 12px var(--blue-glow));
-}
-
-
-/* Optional subtle glow layer */
-.controller.edit::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    filter:
-        drop-shadow(0 0 18px rgba(140, 215, 255, 0.22));
+        brightness(1.35) drop-shadow(0 0 7px var(--white-glow)) drop-shadow(0 0 13px var(--blue-glow));
 }
