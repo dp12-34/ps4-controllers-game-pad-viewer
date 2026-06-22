@@ -1,75 +1,70 @@
 /* =========================================================
-   Mocha PS4 Skin — White body, brown accents
+   Mocha PS4 Skin — White body, light brown accents
    Base: GamePadViewer s=5 (white PS4)
 
-   Strategy: leave the white chassis untouched.
-   Apply grayscale → sepia on each child element group
-   independently so they become warm brown while the
-   white body stays white.
+   The chassis is already white — no parent color filter.
+   Each element group gets grayscale→sepia applied directly.
+   Brightness > 1.0 is needed because the PS4 button/dpad
+   elements are dark by default; we must lighten them INTO
+   a warm light brown, not darken them further.
    ========================================================= */
 
-
-/* ── Chassis: faint warm brown glow only, no color change ── */
+/* ── Chassis: faint warm brown glow, no color change ──────── */
 .controller.edit {
     filter:
-        drop-shadow(0 0 14px rgba(160, 105, 50, 0.38))
-        drop-shadow(0 0 32px rgba(120, 75, 25, 0.20)) !important;
+        drop-shadow(0 0 16px rgba(155, 100, 45, 0.42))
+        drop-shadow(0 0 36px rgba(110, 65, 18, 0.22)) !important;
 }
 
 
-/* ── Face buttons (triangle/circle/cross/square) → brown ─── */
-/* grayscale neutralizes the original teal/red/blue/pink,
-   sepia+hue-rotate re-tints them as warm mocha brown.       */
+/* ── Face buttons → soothing light brown ────────────────────
+   brightness(1.55): lifts the dark button bodies into
+   a light mocha tone. sepia(0.85) adds the warm brown hue.  */
 .controller.edit .face,
 .controller.edit .face *,
 .controller.edit .abxy,
 .controller.edit .abxy * {
     filter:
         grayscale(1)
-        sepia(1)
-        saturate(1.25)
-        hue-rotate(350deg)
-        brightness(0.72)
-        contrast(1.12) !important;
+        sepia(0.85)
+        brightness(1.55)
+        contrast(0.92) !important;
 }
 
 
-/* ── D-pad → warm medium brown ──────────────────────────── */
+/* ── D-pad → medium warm brown ──────────────────────────── */
 .controller.edit .dpad,
 .controller.edit .dpad * {
     filter:
         grayscale(1)
-        sepia(1)
-        saturate(1.15)
-        hue-rotate(350deg)
-        brightness(0.68)
-        contrast(1.14) !important;
+        sepia(0.85)
+        brightness(1.40)
+        contrast(0.96) !important;
 }
 
 
-/* ── Analog sticks → darker brown ───────────────────────── */
+/* ── Analog sticks → slightly darker brown ──────────────── */
 .controller.edit .stick,
 .controller.edit .stick.left,
 .controller.edit .stick.right {
     filter:
         grayscale(1)
-        sepia(1)
-        saturate(1.1)
-        brightness(0.60)
-        contrast(1.18) !important;
+        sepia(0.85)
+        brightness(1.20)
+        contrast(1.02) !important;
 }
 
 
-/* ── Triggers + bumpers → light brown accent ─────────────── */
+/* ── Triggers + bumpers → lightest brown accent ─────────── */
 .controller.edit .trigger,
 .controller.edit .trigger *,
 .controller.edit .bumper,
 .controller.edit .bumper * {
     filter:
         grayscale(1)
-        sepia(0.75)
-        brightness(0.82)
-        contrast(1.06) !important;
+        sepia(0.65)
+        brightness(1.75)
+        contrast(0.90) !important;
 }
 
 
@@ -78,12 +73,13 @@
 .controller.edit .touchpad * {
     filter:
         grayscale(1)
-        sepia(0.45)
-        brightness(0.94) !important;
+        sepia(0.50)
+        brightness(1.85)
+        contrast(0.88) !important;
 }
 
 
-/* ── Share / options / PS button → dark brown ───────────── */
+/* ── Share / options / PS → dark readable brown ─────────── */
 .controller.edit .button,
 .controller.edit .button *,
 .controller.edit .meta,
@@ -92,21 +88,20 @@
 .controller.edit .arrows * {
     filter:
         grayscale(1)
-        sepia(0.9)
-        brightness(0.52)
-        contrast(1.28) !important;
+        sepia(0.85)
+        brightness(0.85)
+        contrast(1.18) !important;
 }
 
 
-/* ── Pressed → darker brown + warm glow ─────────────────── */
+/* ── Pressed → noticeably darker brown + warm glow ──────── */
 .controller.edit .pressed,
 .controller.edit .pressed * {
     filter:
         grayscale(1)
-        sepia(1)
-        saturate(1.4)
-        brightness(0.48)
-        contrast(1.30)
-        drop-shadow(0 0 8px rgba(190, 120, 45, 0.92))
-        drop-shadow(0 0 18px rgba(150, 85, 20, 0.76)) !important;
+        sepia(1.0)
+        brightness(1.05)
+        contrast(1.15)
+        drop-shadow(0 0 9px rgba(185, 115, 40, 0.92))
+        drop-shadow(0 0 20px rgba(145, 80, 18, 0.76)) !important;
 }

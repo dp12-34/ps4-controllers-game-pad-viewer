@@ -1,36 +1,36 @@
 /* ============================================================
    Sakura PS4 GamePad Viewer Skin
-   For use with: ?p=1&s=5&editcss=<raw_url>
+   Container: 806×598px  (verified from GamePadViewer source)
+   For use with: ?p=2&s=5&editcss=<raw_url>
    ============================================================ */
 
 /* ── CONTROLLER BODY ─────────────────────────────────────── */
-/* .controller.edit matches confirmed by the mocha skin.
-   Also cover ds4/ps4 class variants just in case.          */
 .controller.edit,
 .controller.ds4.edit,
 .controller.ps4.edit,
 [class*="ds4"][class*="edit"],
 [class*="ps4"][class*="edit"] {
-  background-image: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/base-custom.png") !important;
-  background-size: 100% auto !important;
+  background-image: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/sakura_skin_wip/skins/base-custom.png") !important;
+  background-size: 100% 100% !important;
   background-repeat: no-repeat !important;
   background-position: top left !important;
 }
 
 /* ── DPAD CONTAINER ──────────────────────────────────────── */
-/* Well center in base image: (152, 269). Container: 153x149 */
+/* Canonical GamePadViewer DS4 position */
 .edit .dpad {
-  left: 76px !important;
-  top: 195px !important;
-  width: 153px !important;
-  height: 149px !important;
+  left: 92px !important;
+  top: 181px !important;
+  width: 125px !important;
+  height: 126px !important;
 }
 
-/* All .face children share this spritesheet */
-/* dpad-custom.png (179x104): row1=normal, row2=pressed (y=-53)  */
-/* cols: LEFT=0  DOWN=-37  UP=-75  RIGHT=-128                    */
+/* dpad-custom.png (179×104px)
+   Row 1 (y=0):   normal   — LEFT=0  DOWN=37  UP=75  RIGHT=128
+   Row 2 (y=-53): pressed
+   Button display sizes: up/down = 36×52px, left/right = 52×36px  */
 .edit .face {
-  background-image: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/dpad-custom.png") !important;
+  background-image: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/sakura_skin_wip/skins/dpad-custom.png") !important;
   background-size: 179px 104px !important;
   position: absolute !important;
 }
@@ -38,11 +38,10 @@
 .edit .face.up {
   width: 36px !important;
   height: 52px !important;
-  left: 58px !important;
+  left: 44px !important;
   top: 0 !important;
   background-position: -75px 0 !important;
 }
-
 .edit .face.up.pressed {
   background-position: -75px -53px !important;
 }
@@ -50,53 +49,50 @@
 .edit .face.down {
   width: 36px !important;
   height: 52px !important;
-  left: 58px !important;
-  top: 97px !important;
+  left: 44px !important;
+  top: 74px !important;
   background-position: -37px 0 !important;
 }
-
 .edit .face.down.pressed {
   background-position: -37px -53px !important;
 }
 
 .edit .face.left {
-  width: 36px !important;
-  height: 38px !important;
+  width: 52px !important;
+  height: 36px !important;
   left: 0 !important;
-  top: 55px !important;
+  top: 44px !important;
   background-position: 0 0 !important;
 }
-
 .edit .face.left.pressed {
   background-position: 0 -53px !important;
 }
 
 .edit .face.right {
-  width: 36px !important;
-  height: 38px !important;
-  left: 117px !important;
-  top: 55px !important;
+  width: 52px !important;
+  height: 36px !important;
+  left: 73px !important;
+  top: 44px !important;
   background-position: -128px 0 !important;
 }
-
 .edit .face.right.pressed {
   background-position: -128px -53px !important;
 }
 
 /* ── FACE BUTTONS (abxy) ─────────────────────────────────── */
-/* Center in base image: (614, 239). Container: 130x130       */
+/* Canonical GamePadViewer DS4 position */
 .edit .abxy {
-  left: 549px !important;
-  top: 174px !important;
-  width: 130px !important;
-  height: 130px !important;
+  left: 567px !important;
+  top: 159px !important;
+  width: 170px !important;
+  height: 171px !important;
 }
 
 /* ── SHARE / OPTIONS ─────────────────────────────────────── */
 .edit .arrows {
-  left: 241px !important;
-  top: 171px !important;
-  width: 315px !important;
+  left: 296px !important;
+  top: 190px !important;
+  width: 222px !important;
 }
 
 /* ── TRIGGERS (L2 / R2) ──────────────────────────────────── */
@@ -112,18 +108,16 @@
 }
 
 /* ── THUMBSTICKS ─────────────────────────────────────────── */
-/*
-  sticks-custom.png (286x94): 3 sprites × 94px each
-    x=0:    left stick (dark)
-    x=-96:  L3 pressed
-    x=-192: right stick (light/R3)
+/* sticks-custom.png (286×94px) — 3 sprites × 94px each:
+     x=0:    left stick (dark plum)
+     x=-96:  L3 pressed
+     x=-192: right stick / R3
 
-  Position sticks absolutely on the controller (same way default skin does).
-  Left  well center: (224, 344) → left=177, top=297
-  Right well center: (504, 339) → left=457, top=292
-*/
+   Sticks live inside a .sticks container:
+     top:308px, left:228px, width:361px, height:105px
+   Positions here are relative to that container.           */
 .edit .stick {
-  background-image: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/sticks-custom.png") !important;
+  background-image: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/sakura_skin_wip/skins/sticks-custom.png") !important;
   background-size: 286px 94px !important;
   width: 94px !important;
   height: 94px !important;
@@ -131,21 +125,27 @@
 }
 
 .edit .stick.left {
-  left: 177px !important;
-  top: 297px !important;
+  left: 0 !important;
+  top: 6px !important;
   background-position: 0 0 !important;
 }
-
 .edit .stick.left.pressed {
   background-position: -96px 0 !important;
 }
 
 .edit .stick.right {
-  left: 457px !important;
-  top: 292px !important;
+  left: 267px !important;
+  top: 6px !important;
   background-position: -192px 0 !important;
 }
-
 .edit .stick.right.pressed {
-  background-position: -192px 0 !important;
+  background-position: -96px 0 !important;
+}
+
+/* ── TOUCHPAD ────────────────────────────────────────────── */
+.edit .touchpad {
+  left: 272px !important;
+  top: 122px !important;
+  width: 262px !important;
+  height: 151px !important;
 }
