@@ -1,82 +1,82 @@
 /* =========================================================
-   Mocha PS4 Skin — Filter-based, GamePad Viewer editcss
+   Mocha PS4 Skin — White body, light brown buttons
    =========================================================
 
-   Strategy: one comprehensive filter on .controller.edit
-   colorizes the chassis AND every child into mocha tones.
-   Child rules then apply brightness/contrast ONLY (not hue)
-   because the parent grayscale+sepia overrides any hue changes
-   made at the child level — they are applied before the parent
-   filter composites the whole surface.
+   Color targets:
+     Chassis / body   → warm white / cream
+     Buttons, d-pad   → soothing light brown
+     Sticks           → medium warm brown
+     Triggers/bumpers → light brown accent
+     Pressed state    → noticeably darker brown
+
+   How it works:
+     The parent filter pushes everything to warm white.
+     Child brightness values pull specific elements back
+     down to brown — lower brightness = darker/browner.
+     Grayscale+sepia in the parent means child hue changes
+     are ignored; only brightness/contrast matter on children.
    ========================================================= */
 
-/* ── Root: apply mocha transformation to everything ──────── */
-/* brightness(0.92) keeps a warm café-au-lait tone without    */
-/* going so dark the controller becomes unreadable.           */
+/* ── Body → warm white / cream ───────────────────────────── */
 .controller.edit {
     filter:
         grayscale(1)
-        sepia(0.85)
-        brightness(0.92)
-        contrast(1.05)
-        drop-shadow(0 0 14px rgba(190, 140, 90, 0.40))
-        drop-shadow(0 0 32px rgba(140, 90, 50, 0.20)) !important;
+        brightness(5.5)
+        contrast(0.68)
+        sepia(0.55)
+        drop-shadow(0 0 18px rgba(200, 160, 110, 0.35))
+        drop-shadow(0 0 36px rgba(160, 110, 60, 0.18)) !important;
 }
 
 
-/* ── Sticks: slightly darker (espresso vs latte) ─────────── */
+/* ── Buttons + D-pad → soothing light brown ──────────────── */
+.controller.edit .abxy,
+.controller.edit .face,
+.controller.edit .dpad,
+.controller.edit .dpad * {
+    filter: brightness(0.44) !important;
+}
+
+
+/* ── Sticks → medium warm brown ──────────────────────────── */
 .controller.edit .stick,
 .controller.edit .stick.left,
 .controller.edit .stick.right {
-    filter: brightness(0.82) contrast(1.15) !important;
+    filter: brightness(0.40) contrast(1.10) !important;
 }
 
 
-/* ── D-pad: medium mocha with crisp edges ────────────────── */
-.controller.edit .dpad,
-.controller.edit .dpad * {
-    filter: brightness(0.88) contrast(1.10) !important;
-}
-
-
-/* ── Face buttons: slightly lighter than chassis ─────────── */
-.controller.edit .abxy,
-.controller.edit .face {
-    filter: brightness(1.08) contrast(0.98) !important;
-}
-
-
-/* ── Triggers + bumpers: lightest (top raised surfaces) ──── */
+/* ── Triggers + bumpers → light brown accent ─────────────── */
 .controller.edit .trigger,
 .controller.edit .trigger *,
 .controller.edit .bumper,
 .controller.edit .bumper * {
-    filter: brightness(1.18) contrast(0.95) !important;
+    filter: brightness(0.60) !important;
 }
 
 
-/* ── Touchpad: smoothest/brightest surface ───────────────── */
+/* ── Touchpad → very light cream accent ──────────────────── */
 .controller.edit .touchpad,
 .controller.edit .touchpad * {
-    filter: brightness(1.28) contrast(0.90) !important;
+    filter: brightness(0.78) !important;
 }
 
 
-/* ── Meta + share/options: darkest for readability ───────── */
+/* ── Meta + share/options → dark brown for readability ───── */
 .controller.edit .meta,
 .controller.edit .meta *,
 .controller.edit .arrows,
 .controller.edit .arrows * {
-    filter: brightness(0.68) contrast(1.32) !important;
+    filter: brightness(0.28) contrast(1.40) !important;
 }
 
 
-/* ── Pressed state: warm mocha glow ──────────────────────── */
+/* ── Pressed → noticeably darker brown ───────────────────── */
 .controller.edit .pressed,
 .controller.edit .pressed * {
     filter:
-        brightness(1.75)
-        contrast(1.15)
-        drop-shadow(0 0 7px rgba(255, 235, 205, 0.95))
-        drop-shadow(0 0 15px rgba(200, 145, 85, 0.85)) !important;
+        brightness(0.30)
+        contrast(1.30)
+        drop-shadow(0 0 8px rgba(180, 120, 60, 0.90))
+        drop-shadow(0 0 18px rgba(140, 85, 35, 0.72)) !important;
 }

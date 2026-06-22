@@ -10,9 +10,9 @@
 .edit.controller.ds4,
 [class*="ds4"][class*="edit"] {
   background-image: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/base-custom.png") !important;
-  background-size: 100% 100% !important;
+  background-size: 100% auto !important;
   background-repeat: no-repeat !important;
-  background-position: 0 0 !important;
+  background-position: top left !important;
 }
 
 /* ── DPAD CONTAINER ──────────────────────────────────────── */
