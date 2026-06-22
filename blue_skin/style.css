@@ -1,66 +1,110 @@
-/* Blue + White PS4 / DS4 skin for Gamepad Viewer */
+/* =========================================================
+   Blue / White PS4 Controller Skin
+   For Gamepad Viewer using editcss=
+   URL format:
+   https://gamepadviewer.com/?p=1&s=5&editcss=YOUR_CSS_URL
+   ========================================================= */
 
-/* Main controller */
-.controller.ds4 {
+
+/* Main controller body
+   Goal: mostly white base, light blue glow
+*/
+.controller.edit {
     filter:
-        grayscale(1) sepia(1) saturate(4) hue-rotate(170deg) brightness(1.15) contrast(1.08);
-
-    drop-shadow: 0 0 12px rgba(70, 170, 255, 0.75);
+        grayscale(1) sepia(0.08) saturate(1.15) hue-rotate(175deg) brightness(1.82) contrast(0.88) drop-shadow(0 0 8px rgba(140, 215, 255, 0.55)) drop-shadow(0 0 22px rgba(140, 215, 255, 0.28));
 }
 
-/* Make the controller feel brighter/cleaner */
-.ds4 {
-    --blue-glow: rgba(70, 170, 255, 0.95);
-    --soft-blue-glow: rgba(70, 170, 255, 0.45);
-    --white-glow: rgba(255, 255, 255, 0.9);
+
+/* Shared colors */
+.edit {
+    --blue-glow: rgba(140, 215, 255, 0.9);
+    --soft-blue-glow: rgba(140, 215, 255, 0.45);
+    --white-glow: rgba(255, 255, 255, 0.95);
 }
 
-/* Pressed buttons */
-.ds4 .pressed,
-.ds4 .button.pressed,
-.ds4 .face.pressed,
-.ds4 .bumper.pressed,
-.ds4 .trigger.pressed,
-.ds4 .touchpad.pressed,
-.ds4 .meta.pressed {
+
+/* General pressed state */
+.edit .pressed,
+.edit .button.pressed,
+.edit .face.pressed,
+.edit .bumper.pressed,
+.edit .trigger.pressed,
+.edit .touchpad.pressed,
+.edit .meta.pressed {
     filter:
-        brightness(1.8) saturate(1.5) drop-shadow(0 0 8px var(--white-glow)) drop-shadow(0 0 14px var(--blue-glow));
+        brightness(1.55) saturate(1.15) drop-shadow(0 0 7px var(--white-glow)) drop-shadow(0 0 13px var(--blue-glow));
 }
 
-/* Sticks when pressed/clicked */
-.ds4 .stick.pressed,
-.ds4 .stick.left.pressed,
-.ds4 .stick.right.pressed {
+
+/* Face buttons pressed */
+.edit .face .pressed,
+.edit .triangle.pressed,
+.edit .circle.pressed,
+.edit .cross.pressed,
+.edit .square.pressed {
     filter:
-        brightness(1.7) drop-shadow(0 0 10px var(--blue-glow));
+        brightness(1.65) saturate(1.15) drop-shadow(0 0 8px var(--white-glow)) drop-shadow(0 0 14px var(--blue-glow));
 }
 
-/* D-pad when pressed */
-.ds4 .dpad .pressed,
-.ds4 .arrows .pressed,
-.ds4 .up.pressed,
-.ds4 .down.pressed,
-.ds4 .left.pressed,
-.ds4 .right.pressed {
+
+/* D-pad pressed */
+.edit .dpad .pressed,
+.edit .arrows .pressed,
+.edit .up.pressed,
+.edit .down.pressed,
+.edit .left.pressed,
+.edit .right.pressed {
     filter:
-        brightness(1.9) drop-shadow(0 0 8px var(--white-glow)) drop-shadow(0 0 12px var(--blue-glow));
+        brightness(1.65) saturate(1.1) drop-shadow(0 0 8px var(--white-glow)) drop-shadow(0 0 13px var(--blue-glow));
 }
 
-/* Face buttons when pressed */
-.ds4 .face .pressed,
-.ds4 .triangle.pressed,
-.ds4 .circle.pressed,
-.ds4 .cross.pressed,
-.ds4 .square.pressed {
+
+/* Sticks */
+.edit .stick,
+.edit .stick.left,
+.edit .stick.right {
     filter:
-        brightness(2) drop-shadow(0 0 8px var(--white-glow)) drop-shadow(0 0 14px var(--blue-glow));
+        brightness(1.08) drop-shadow(0 0 5px rgba(140, 215, 255, 0.25));
 }
 
-/* Optional: make the whole overlay pop more in OBS */
-.ds4::after {
+
+/* Stick click / pressed */
+.edit .stick.pressed,
+.edit .stick.left.pressed,
+.edit .stick.right.pressed {
+    filter:
+        brightness(1.5) drop-shadow(0 0 8px var(--white-glow)) drop-shadow(0 0 13px var(--blue-glow));
+}
+
+
+/* Bumpers and triggers pressed */
+.edit .bumper.pressed,
+.edit .trigger.pressed,
+.edit .left.bumper.pressed,
+.edit .right.bumper.pressed,
+.edit .left.trigger.pressed,
+.edit .right.trigger.pressed {
+    filter:
+        brightness(1.6) saturate(1.15) drop-shadow(0 0 8px var(--white-glow)) drop-shadow(0 0 14px var(--blue-glow));
+}
+
+
+/* Touchpad / center buttons pressed */
+.edit .touchpad.pressed,
+.edit .meta.pressed,
+.edit .start.pressed,
+.edit .back.pressed {
+    filter:
+        brightness(1.55) drop-shadow(0 0 7px var(--white-glow)) drop-shadow(0 0 12px var(--blue-glow));
+}
+
+
+/* Optional subtle glow layer */
+.controller.edit::after {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
-    filter: drop-shadow(0 0 18px rgba(70, 170, 255, 0.35));
+    filter:
+        drop-shadow(0 0 18px rgba(140, 215, 255, 0.22));
 }
