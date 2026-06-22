@@ -11,36 +11,38 @@
    ========================================================= */
 
 /* ── Root: apply mocha transformation to everything ──────── */
+/* brightness(0.92) keeps a warm café-au-lait tone without    */
+/* going so dark the controller becomes unreadable.           */
 .controller.edit {
     filter:
         grayscale(1)
-        sepia(1)
-        brightness(0.73)
-        contrast(1.15)
+        sepia(0.85)
+        brightness(0.92)
+        contrast(1.05)
         drop-shadow(0 0 14px rgba(190, 140, 90, 0.40))
         drop-shadow(0 0 32px rgba(140, 90, 50, 0.20)) !important;
 }
 
 
-/* ── Sticks: espresso-dark ───────────────────────────────── */
+/* ── Sticks: slightly darker (espresso vs latte) ─────────── */
 .controller.edit .stick,
 .controller.edit .stick.left,
 .controller.edit .stick.right {
-    filter: brightness(0.72) contrast(1.22) !important;
+    filter: brightness(0.82) contrast(1.15) !important;
 }
 
 
 /* ── D-pad: medium mocha with crisp edges ────────────────── */
 .controller.edit .dpad,
 .controller.edit .dpad * {
-    filter: brightness(0.82) contrast(1.14) !important;
+    filter: brightness(0.88) contrast(1.10) !important;
 }
 
 
 /* ── Face buttons: slightly lighter than chassis ─────────── */
 .controller.edit .abxy,
 .controller.edit .face {
-    filter: brightness(1.10) contrast(0.98) !important;
+    filter: brightness(1.08) contrast(0.98) !important;
 }
 
 
@@ -49,14 +51,14 @@
 .controller.edit .trigger *,
 .controller.edit .bumper,
 .controller.edit .bumper * {
-    filter: brightness(1.22) contrast(0.95) !important;
+    filter: brightness(1.18) contrast(0.95) !important;
 }
 
 
 /* ── Touchpad: smoothest/brightest surface ───────────────── */
 .controller.edit .touchpad,
 .controller.edit .touchpad * {
-    filter: brightness(1.32) contrast(0.88) !important;
+    filter: brightness(1.28) contrast(0.90) !important;
 }
 
 
@@ -65,19 +67,16 @@
 .controller.edit .meta *,
 .controller.edit .arrows,
 .controller.edit .arrows * {
-    filter: brightness(0.60) contrast(1.42) !important;
+    filter: brightness(0.68) contrast(1.32) !important;
 }
 
 
 /* ── Pressed state: warm mocha glow ──────────────────────── */
-/* Parent sepia re-warms the drop-shadow after grayscale,
-   so the glow still reads as warm even though the child
-   sets an explicit rgba color here. */
 .controller.edit .pressed,
 .controller.edit .pressed * {
     filter:
-        brightness(1.88)
-        contrast(1.18)
+        brightness(1.75)
+        contrast(1.15)
         drop-shadow(0 0 7px rgba(255, 235, 205, 0.95))
         drop-shadow(0 0 15px rgba(200, 145, 85, 0.85)) !important;
 }
