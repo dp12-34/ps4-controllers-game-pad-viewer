@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sakura Skin — Local Preview</title>
+  <style>
+    /* ── Page chrome ──────────────────────────────────────── */
+    body {
+      margin: 0;
+      background: #0d0d0d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 0;
+      font-family: system-ui, sans-serif;
+      color: #ccc;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 18px; }
+    p  { margin: 0 0 16px; font-size: 12px; color: #888; }
+
+    .controls {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    button {
+      padding: 7px 18px;
+      background: #222;
+      border: 1px solid #444;
+      color: #ddd;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    button:hover { background: #333; }
+
+    /* ── GamePadViewer DS4 base layout approximation ──────── */
+    /* These reproduce the GamePadViewer base CSS for s=5.    */
+    /* The sakura CSS overrides everything with !important,   */
+    /* so as long as elements exist they will be positioned   */
+    /* correctly by edit-v7.css.                              */
+
+    .controller {
+      position: relative;
+      /* Approximate GamePadViewer DS4 container.
+         Right edge of .abxy = left(549) + width(130) = 679px.
+         Adjust this width if elements seem globally off. */
+      width: 680px;
+      height: 420px;
+      overflow: visible;
+    }
+
+    /* Absolute-positioned containers */
+    .dpad, .abxy, .arrows, .triggers, .bumpers,
+    .touchpad, .meta {
+      position: absolute;
+    }
+
+    /* Sticks are siblings of .dpad, positioned directly on controller */
+    .stick { position: absolute; }
+
+    /* Give child elements a visible default size so they appear
+       in the preview even if the skin CSS doesn't set size on them. */
+    .trigger { position: absolute; width: 80px; height: 38px; }
+    .bumper  { position: absolute; width: 80px; height: 28px; }
+    .trigger.left, .bumper.left  { left: 0; }
+    .trigger.right, .bumper.right { right: 0; }
+
+    .touchpad { width: 120px; height: 62px; left: 280px; top: 130px; }
+    .meta     { width: 40px; height: 40px; left: 320px; top: 205px; }
+    .arrows   { height: 36px; }
+
+    .button { position: absolute; width: 30px; height: 30px; }
+
+    /* ── Debug overlay ────────────────────────────────────── */
+    /* Activated by the Toggle Debug button below.            */
+    /* Each element gets a colored outline + a label showing  */
+    /* its class so you can match positions to the artwork.   */
+    .debug .dpad      { outline: 2px solid red;     }
+    .debug .face      { outline: 2px dashed tomato; }
+    .debug .abxy      { outline: 2px solid dodgerblue; }
+    .debug .button    { outline: 2px dashed cyan;   }
+    .debug .stick     { outline: 2px solid lime;    }
+    .debug .trigger   { outline: 2px solid gold;    }
+    .debug .bumper    { outline: 2px solid orange;  }
+    .debug .triggers  { outline: 2px solid #888;    }
+    .debug .bumpers   { outline: 2px solid #888;    }
+    .debug .touchpad  { outline: 2px solid white;   }
+    .debug .arrows    { outline: 2px solid magenta; }
+    .debug .meta      { outline: 2px solid violet;  }
+
+    /* ── Debug labels ─────────────────────────────────────── */
+    .debug [class]::after {
+      content: attr(class);
+      position: absolute;
+      bottom: -14px;
+      left: 0;
+      font-size: 9px;
+      white-space: nowrap;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      padding: 1px 3px;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── Legend ───────────────────────────────────────────── */
+    .legend {
+      display: none;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 680px;
+      margin-top: 24px;
+      font-size: 11px;
+    }
+    .legend.visible { display: flex; }
+    .legend span { display: flex; align-items: center; gap: 5px; }
+    .legend span i {
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid;
+    }
+  </style>
+
+  <!-- Load the live sakura skin CSS -->
+  <link rel="stylesheet" href="edit-v7.css">
+</head>
+<body>
+
+  <h1>Sakura Skin — Local Preview</h1>
+  <p>
+    Open this file in Chrome. Images load from GitHub Pages — push first if you changed them.<br>
+    Use <b>Toggle Debug</b> to show element boundaries and compare to the base artwork.
+  </p>
+
+  <div class="controls">
+    <button onclick="toggleDebug()">Toggle Debug Outlines</button>
+    <button onclick="togglePress()">Simulate Pressed State</button>
+  </div>
+
+  <!-- ── GamePadViewer DS4 HTML structure ────────────────── -->
+  <!-- Class names must match exactly what GamePadViewer uses -->
+  <div class="controller ds4 edit" id="ctrl">
+
+    <div class="triggers">
+      <div class="trigger left"></div>
+      <div class="trigger right"></div>
+    </div>
+
+    <div class="bumpers">
+      <div class="bumper left"></div>
+      <div class="bumper right"></div>
+    </div>
+
+    <div class="touchpad"></div>
+    <div class="meta"></div>
+
+    <div class="arrows">
+      <div class="back"></div>
+      <div class="start"></div>
+    </div>
+
+    <!-- Face button cluster (triangle / circle / cross / square) -->
+    <div class="abxy">
+      <div class="button a"></div>
+      <div class="button b"></div>
+      <div class="button x"></div>
+      <div class="button y"></div>
+    </div>
+
+    <!-- Sticks are absolute children of the controller root -->
+    <div class="stick left"></div>
+    <div class="stick right"></div>
+
+    <!-- D-pad -->
+    <div class="dpad">
+      <div class="face up"></div>
+      <div class="face down"></div>
+      <div class="face left"></div>
+      <div class="face right"></div>
+    </div>
+
+  </div><!-- /.controller -->
+
+  <div class="legend" id="legend">
+    <span><i style="border-color:red"></i> .dpad</span>
+    <span><i style="border-color:tomato;border-style:dashed"></i> .face</span>
+    <span><i style="border-color:dodgerblue"></i> .abxy</span>
+    <span><i style="border-color:lime"></i> .stick</span>
+    <span><i style="border-color:gold"></i> .trigger</span>
+    <span><i style="border-color:orange"></i> .bumper</span>
+    <span><i style="border-color:white"></i> .touchpad</span>
+    <span><i style="border-color:magenta"></i> .arrows</span>
+  </div>
+
+  <script>
+    function toggleDebug() {
+      const ctrl = document.getElementById('ctrl');
+      ctrl.classList.toggle('debug');
+      document.getElementById('legend').classList.toggle('visible');
+    }
+
+    /* Adds .pressed to a random element for visual testing */
+    function togglePress() {
+      const targets = document.querySelectorAll('.dpad, .face, .stick, .button');
+      targets.forEach(el => el.classList.toggle('pressed'));
+    }
+  </script>
+</body>
+</html>
