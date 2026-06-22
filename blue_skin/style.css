@@ -2,56 +2,57 @@
    Mocha PS4 Skin — White body, light brown accents
    Base: GamePadViewer s=5 (white PS4)
 
-   The chassis is already white — no parent color filter.
-   Each element group gets grayscale→sepia applied directly.
-   Brightness > 1.0 is needed because the PS4 button/dpad
-   elements are dark by default; we must lighten them INTO
-   a warm light brown, not darken them further.
+   The chassis is left completely alone (no parent color filter)
+   so it stays white. Each element group gets grayscale→sepia
+   applied independently to become warm brown.
+
+   Key: the white PS4 skin's button/dpad/stick sprites are DARK
+   (dark grey rubber/charcoal). brightness must go well above 1.0
+   to lift them into a LIGHT warm brown instead of dark brown.
    ========================================================= */
 
-/* ── Chassis: faint warm brown glow, no color change ──────── */
+/* ── Chassis: warm brown glow only, no color change ──────── */
 .controller.edit {
     filter:
-        drop-shadow(0 0 16px rgba(155, 100, 45, 0.42))
-        drop-shadow(0 0 36px rgba(110, 65, 18, 0.22)) !important;
+        drop-shadow(0 0 18px rgba(155, 100, 45, 0.48))
+        drop-shadow(0 0 40px rgba(110, 65, 18, 0.26)) !important;
 }
 
 
 /* ── Face buttons → soothing light brown ────────────────────
-   brightness(1.55): lifts the dark button bodies into
-   a light mocha tone. sepia(0.85) adds the warm brown hue.  */
+   2.5 brightness lifts the dark sprite into light warm tan.   */
 .controller.edit .face,
 .controller.edit .face *,
 .controller.edit .abxy,
 .controller.edit .abxy * {
     filter:
         grayscale(1)
-        sepia(0.85)
-        brightness(1.55)
-        contrast(0.92) !important;
+        sepia(0.82)
+        brightness(2.5)
+        contrast(0.86) !important;
 }
 
 
-/* ── D-pad → medium warm brown ──────────────────────────── */
+/* ── D-pad → slightly deeper light brown ────────────────── */
 .controller.edit .dpad,
 .controller.edit .dpad * {
     filter:
         grayscale(1)
-        sepia(0.85)
-        brightness(1.40)
-        contrast(0.96) !important;
+        sepia(0.82)
+        brightness(2.2)
+        contrast(0.88) !important;
 }
 
 
-/* ── Analog sticks → slightly darker brown ──────────────── */
+/* ── Analog sticks → medium warm brown ──────────────────── */
 .controller.edit .stick,
 .controller.edit .stick.left,
 .controller.edit .stick.right {
     filter:
         grayscale(1)
-        sepia(0.85)
-        brightness(1.20)
-        contrast(1.02) !important;
+        sepia(0.82)
+        brightness(1.95)
+        contrast(0.90) !important;
 }
 
 
@@ -63,19 +64,19 @@
     filter:
         grayscale(1)
         sepia(0.65)
-        brightness(1.75)
-        contrast(0.90) !important;
+        brightness(2.8)
+        contrast(0.84) !important;
 }
 
 
-/* ── Touchpad → very soft warm tint ─────────────────────── */
+/* ── Touchpad → barely-there warm tint ──────────────────── */
 .controller.edit .touchpad,
 .controller.edit .touchpad * {
     filter:
         grayscale(1)
-        sepia(0.50)
-        brightness(1.85)
-        contrast(0.88) !important;
+        sepia(0.48)
+        brightness(3.0)
+        contrast(0.82) !important;
 }
 
 
@@ -88,20 +89,21 @@
 .controller.edit .arrows * {
     filter:
         grayscale(1)
-        sepia(0.85)
-        brightness(0.85)
-        contrast(1.18) !important;
+        sepia(0.82)
+        brightness(1.05)
+        contrast(1.12) !important;
 }
 
 
 /* ── Pressed → noticeably darker brown + warm glow ──────── */
+/* brightness(1.85) is clearly darker than face buttons(2.5)  */
 .controller.edit .pressed,
 .controller.edit .pressed * {
     filter:
         grayscale(1)
-        sepia(1.0)
-        brightness(1.05)
-        contrast(1.15)
+        sepia(0.95)
+        brightness(1.85)
+        contrast(1.05)
         drop-shadow(0 0 9px rgba(185, 115, 40, 0.92))
         drop-shadow(0 0 20px rgba(145, 80, 18, 0.76)) !important;
 }
