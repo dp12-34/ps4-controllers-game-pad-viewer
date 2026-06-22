@@ -4,7 +4,11 @@
    ============================================================ */
 
 /* ── CONTROLLER BODY ─────────────────────────────────────── */
-.edit .controller.ds4 {
+/* Hit all possible selector combos for the editcss class arrangement */
+.controller.ds4.edit,
+.edit .controller.ds4,
+.edit.controller.ds4,
+[class*="ds4"][class*="edit"] {
   background-image: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/base-custom.png") !important;
   background-size: 100% 100% !important;
   background-repeat: no-repeat !important;
@@ -20,18 +24,15 @@
   height: 149px !important;
 }
 
-/* All .face children share this image */
+/* All .face children share this spritesheet */
+/* dpad-custom.png (179x104): row1=normal, row2=pressed (y=-53)  */
+/* cols: LEFT=0  DOWN=-37  UP=-75  RIGHT=-128                    */
 .edit .face {
   background-image: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/dpad-custom.png") !important;
   background-size: 179px 104px !important;
   position: absolute !important;
 }
 
-/*
-  dpad-custom.png layout (179x104):
-  Row 1 (y=0):   normal  |  Row 2 (y=-53): pressed
-  Col: LEFT=0  DOWN=-37  UP=-75  RIGHT=-128
-*/
 .edit .face.up {
   width: 36px !important;
   height: 52px !important;
@@ -81,7 +82,7 @@
 }
 
 /* ── FACE BUTTONS (abxy) ─────────────────────────────────── */
-/* Center in base image: (614, 239). Container: 130x130 */
+/* Center in base image: (614, 239). Container: 130x130       */
 .edit .abxy {
   left: 549px !important;
   top: 174px !important;
@@ -89,7 +90,7 @@
   height: 130px !important;
 }
 
-/* ── SHARE / OPTIONS (.arrows) ───────────────────────────── */
+/* ── SHARE / OPTIONS ─────────────────────────────────────── */
 .edit .arrows {
   left: 241px !important;
   top: 171px !important;
@@ -108,20 +109,17 @@
   top: 96px !important;
 }
 
-/* ── STICKS CONTAINER ────────────────────────────────────── */
+/* ── THUMBSTICKS ─────────────────────────────────────────── */
 /*
-  Left well center: (224, 344), Right well center: (504, 339)
-  Container spans both wells. Stick sprites: 94x94 each.
-  sticks-custom.png (286x94): sprite1=left(x=0), sprite2=L3(x=-96), sprite3=R3(x=-192)
-*/
-.edit .sticks {
-  position: absolute !important;
-  left: 177px !important;
-  top: 292px !important;
-  width: 374px !important;
-  height: 94px !important;
-}
+  sticks-custom.png (286x94): 3 sprites × 94px each
+    x=0:    left stick (dark)
+    x=-96:  L3 pressed
+    x=-192: right stick (light/R3)
 
+  Position sticks absolutely on the controller (same way default skin does).
+  Left  well center: (224, 344) → left=177, top=297
+  Right well center: (504, 339) → left=457, top=292
+*/
 .edit .stick {
   background-image: url("https://dp12-34.github.io/ps4-controllers-game-pad-viewer/skins/sticks-custom.png") !important;
   background-size: 286px 94px !important;
@@ -130,10 +128,9 @@
   position: absolute !important;
 }
 
-/* Left stick: sprite 1 (dark, x=0). top=5 to vertically center within container */
 .edit .stick.left {
-  left: 0 !important;
-  top: 5px !important;
+  left: 177px !important;
+  top: 297px !important;
   background-position: 0 0 !important;
 }
 
@@ -141,10 +138,9 @@
   background-position: -96px 0 !important;
 }
 
-/* Right stick: sprite 3 (light, x=-192). top=0 */
 .edit .stick.right {
-  left: 280px !important;
-  top: 0 !important;
+  left: 457px !important;
+  top: 292px !important;
   background-position: -192px 0 !important;
 }
 
